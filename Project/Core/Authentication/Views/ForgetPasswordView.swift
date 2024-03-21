@@ -81,7 +81,7 @@ struct ForgetPasswordView: View {
                     
                     TextField("Enter Your Email Address", text: $email)
                         .offset(x: 65, y: 0)
-                        .textInputAutocapitalization(.never)
+                        .textInputAutocapitalization(.never) //No auto caps text. 
                 }
                 
                 // Reset Button
