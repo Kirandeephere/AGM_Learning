@@ -1,21 +1,25 @@
 //
-//  RegistrationView.swift
+//  EditProfileView.swift
 //  Project
 //
-//  Created by Gursewak Singh on 21/3/2024.
+//  Created by Gursewak Singh on 22/3/2024.
 //
 
 import SwiftUI
 
-struct RegistrationView: View {
+struct EditProfileView: View {
     @State private var fullname = ""
     @State private var email = ""
     @State private var phonenumber = ""
-    @State private var password = ""
-    @State private var confrimpassword = ""
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel : AuthViewModel
+    @State private var errorMessage: String?
+    @State private var successMessage: String = ""
+
+    @State private var updateStatusMessage: String = ""
+    @State private var navigateToProfile = false
+
     
+    @EnvironmentObject var viewModel : AuthViewModel
+
     var body: some View {
         NavigationView{
             VStack{
@@ -33,7 +37,7 @@ struct RegistrationView: View {
                                 )
                             
                             NavigationLink(
-                                destination: LoginView().navigationBarHidden(true),
+                                destination: ProfileView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
                                         .font(Font.custom("Alatsi", size: 15))
@@ -42,7 +46,7 @@ struct RegistrationView: View {
                         }
                         .offset(x: -45, y: 0)
                         
-                        Text("Sign Up")
+                        Text("Profile")
                             .font(Font.custom("Alatsi", size: 25))
                             .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
                             .offset(x: -20, y: 0)
@@ -78,10 +82,10 @@ struct RegistrationView: View {
                         
                     }
                     
-                    Text("Email Address")
+                    Text("Email ID")
                         .font(Font.custom("Alatsi", size: 15))
                         .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -115, y: 0)
+                        .offset(x: -135, y: 0)
                     
                     ZStack {
                         Rectangle()
@@ -111,52 +115,19 @@ struct RegistrationView: View {
                         TextField("Enter Your Phone Number", text: $phonenumber)
                             .offset(x: 65, y: 0)
                         
-                        
                     }
-                    
-                    Text("Password")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -130, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        SecureField("Enter Your Password", text: $password)
-                            .offset(x: 65, y: 0)
-                        
-                    }
-                    
-                    Text("Confirm Password")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -100, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        SecureField("Enter Your Password Again", text: $confrimpassword)
-                            .offset(x: 65, y: 0)
-                        
-                    }
+
                 };
                 
                
-                //Sign IN Button
+                //Send Button
                 Button{
                     Task{
-                        try await viewModel.createUser(withEmail: email, password: password, fullname: fullname, phonenumber: phonenumber)
+                        try await viewModel.updateUserInfo(fullname: fullname, email: email ,phonenumber: phonenumber)
+                        print("Update User Info")
                     }
                 }label: {
-                    Text("Sign Up")
+                    Text("Send")
                         .font(Font.custom("Alatsi", size: 18))
                         .foregroundColor(.white)
                     
@@ -168,24 +139,6 @@ struct RegistrationView: View {
                     .cornerRadius(5)
                     .offset(x: 0, y: 20)
                 
-                
-                HStack{
-                    
-                    Text("Already have an account?")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                    
-                    NavigationLink(
-                        destination: LoginView().navigationBarHidden(true),
-                        label: {
-                            Text("Sign In")
-                                .font(Font.custom("Alatsi", size: 15))
-                                .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
-                            
-                        })
-                    
-                }.offset(x: 0, y: 40)
-                
             }
             
         }
@@ -195,20 +148,16 @@ struct RegistrationView: View {
 
 
 //MARK- FORM VALIDATION
-extension RegistrationView: AuthenticationFormProtocol{
+extension EditProfileView: AuthenticationFormProtocol{
     var formisValid: Bool {
         return !email.isEmpty
         && email.contains("@")
-        && !password.isEmpty
-        && password.count > 5
-        && confrimpassword == password
         && !fullname.isEmpty
         && !phonenumber.isEmpty
         && phonenumber.count >= 8
         
     }
 }
-
 #Preview {
-    RegistrationView()
+    EditProfileView()
 }

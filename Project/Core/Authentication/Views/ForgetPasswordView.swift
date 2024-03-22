@@ -112,6 +112,7 @@ struct ForgetPasswordView: View {
                                 successMessage = "Password reset email sent successfully"
                                 navigateToLogin = true
                             }catch {
+                                // Handle error
                                 errorMessage = error.localizedDescription
                             }
                         }

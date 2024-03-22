@@ -90,13 +90,37 @@ class AuthViewModel: ObservableObject{
     
     
     //Firebase Reset Password Function
-    // Firebase Reset Password Function
     func resetPassword(forEmail email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 print("DEBUG: Failed to send password reset email with error \(error.localizedDescription)")
             } else {
                 print("DEBUG: Password reset email sent successfully")
+            }
+        }
+    }
+    
+    
+    
+    //Firebase Update User Account Function
+    func updateUserInfo(fullname: String, email: String, phonenumber: String) {
+        guard let currentUser = Auth.auth().currentUser else {
+            print("No current user found")
+            return
+        }
+        
+        let userRef = Firestore.firestore().collection("users").document(currentUser.uid)
+        
+        userRef.updateData([
+            "fullname": fullname,
+            "email": email,
+            "phonenumber": phonenumber
+            // Add other fields you want to update here
+        ]) { error in
+            if let error = error {
+                print("Error updating user information: \(error)")
+            } else {
+                print("User information updated successfully")
             }
         }
     }

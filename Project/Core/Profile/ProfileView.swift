@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel : AuthViewModel
+    @State private var navigateToEditProfile = false
+    @State private var showLogoutConfirmation = false
+    
+    
     var body: some View {
         if let user = viewModel.currentUser {
             List{
@@ -47,20 +51,25 @@ struct ProfileView: View {
                             .font(.headline)
                             .foregroundColor(.gray)
                     }
-                   
+                    
                 }
                 
                 Section("Account"){
                     Button{
-                        print("Edit profile...")
+                        print("Edit Profile...")
+                        navigateToEditProfile = true
                     }label: {
                         SettingsRowView(imageName: "arrow.right",
                                         title: "Edit Profile",
                                         tintColor: .black)
                     }
+                    .sheet(isPresented: $navigateToEditProfile) {
+                        EditProfileView()
+                    }
+                    
                     
                     Button{
-                        print("Chnage password...")
+                        print("Change password...")
                     }label: {
                         SettingsRowView(imageName: "arrow.right",
                                         title: "Change password",
@@ -75,12 +84,20 @@ struct ProfileView: View {
                                         tintColor: .black)
                     }
                     
-                    Button{
-                        viewModel.signOut()
+                    Button {
+                        showLogoutConfirmation = true
                     }label: {
                         SettingsRowView(imageName: "arrow.right.circle.fill",
                                         title: "Logout",
                                         tintColor: .red)
+                    }
+                    .alert(isPresented: $showLogoutConfirmation){
+                        Alert(title: Text("Confirmation"),
+                              message: Text("Are you sure you want to log out?"),
+                              primaryButton: .cancel(),
+                              secondaryButton: .destructive(Text("Confirm")) {
+                            viewModel.signOut()
+                        })
                     }
                     
                 }
@@ -88,6 +105,7 @@ struct ProfileView: View {
         }
     }
 }
+
 
 #Preview {
     ProfileView()
