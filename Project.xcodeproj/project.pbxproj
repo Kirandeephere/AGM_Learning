@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */; };
 		3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAD2BAD247600692F51 /* EditProfileView.swift */; };
+		3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAF2BAD756300692F51 /* NewPasswordView.swift */; };
 		34D6E7B62BABC3770095A97B /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E7B52BABC3770095A97B /* ProjectApp.swift */; };
 		34D6E7B82BABC3770095A97B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E7B72BABC3770095A97B /* ContentView.swift */; };
 		34D6E7BA2BABC3790095A97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6E7B92BABC3790095A97B /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		3463DCAD2BAD247600692F51 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		3463DCAF2BAD756300692F51 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
 		34D6E7B22BABC3770095A97B /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6E7B52BABC3770095A97B /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		34D6E7B72BABC3770095A97B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				34D6E7D32BABD3830095A97B /* ProfileView.swift */,
+				3463DCAF2BAD756300692F51 /* NewPasswordView.swift */,
 				3463DCAD2BAD247600692F51 /* EditProfileView.swift */,
 			);
 			path = Profile;
@@ -423,6 +426,7 @@
 				34D6E7CE2BABC5B20095A97B /* LoginView.swift in Sources */,
 				34D6E7D42BABD3830095A97B /* ProfileView.swift in Sources */,
 				340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */,
+				3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */,
 				34D6E7C62BABC41D0095A97B /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -158,6 +158,7 @@ extension EditProfileView: AuthenticationFormProtocol{
         
     }
 }
+
 #Preview {
     EditProfileView()
 }

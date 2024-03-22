@@ -11,6 +11,7 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     @State private var navigateToEditProfile = false
     @State private var showLogoutConfirmation = false
+    @State private var navigateToNewPassword = false
     
     
     var body: some View {
@@ -70,10 +71,14 @@ struct ProfileView: View {
                     
                     Button{
                         print("Change password...")
+                        navigateToNewPassword = true
                     }label: {
                         SettingsRowView(imageName: "arrow.right",
                                         title: "Change password",
                                         tintColor: .black)
+                    }
+                    .sheet(isPresented: $navigateToNewPassword) {
+                        NewPasswordView()
                     }
                     
                     Button{

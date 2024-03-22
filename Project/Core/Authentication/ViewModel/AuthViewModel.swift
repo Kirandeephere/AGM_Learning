@@ -124,4 +124,30 @@ class AuthViewModel: ObservableObject{
             }
         }
     }
+    
+    
+    
+    //Firebase Reset User Password Function
+    func updatePassword(newPassword: String, currentPassword: String, completion: @escaping (Error?) -> Void) {
+        if let currentUser = Auth.auth().currentUser {
+            let credential = EmailAuthProvider.credential(withEmail: currentUser.email ?? "", password: currentPassword)
+            currentUser.reauthenticate(with: credential) { _, error in
+                if let error = error {
+                    completion(error)
+                } else {
+                    currentUser.updatePassword(to: newPassword) { error in
+                        completion(error)
+                    }
+                }
+            }
+        } else {
+            let error = NSError(domain: "com.yourapp.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "No current user found"])
+            completion(error)
+        }
+    }
+    
+    
+    
+    //New Functions
+    
 }
