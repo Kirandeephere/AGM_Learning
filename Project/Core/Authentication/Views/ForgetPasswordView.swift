@@ -11,6 +11,7 @@ struct ForgetPasswordView: View {
     @State private var email: String = ""
     @State private var errorMessage: String = ""
     @State private var successMessage: String = ""
+    @State private var navigateToLogin = false
 
     @EnvironmentObject var viewModel : AuthViewModel
     
@@ -93,15 +94,27 @@ struct ForgetPasswordView: View {
                         .cornerRadius(5)
                         .offset(x: 0, y: 40)
                     
-                    Button{
-                        Task{
-                            try await viewModel.resetPassword(forEmail: email)
+                    NavigationLink(
+                        destination: LoginView().navigationBarHidden(true),
+                        isActive: $navigateToLogin,
+                        label: {
+                            Text("Send")
+                                .font(Font.custom("Alatsi", size: 18))
+                                .foregroundColor(.white)
+                                .disabled(!formisValid)
+                                .opacity(formisValid ? 1.0 : 0.5)
+                                .padding(.top, 80)
+                        })
+                    .onTapGesture {
+                        Task {
+                            do{
+                                try await viewModel.resetPassword(forEmail: email)
+                                successMessage = "Password reset email sent successfully"
+                                navigateToLogin = true
+                            }catch {
+                                errorMessage = error.localizedDescription
+                            }
                         }
-                    }label: {
-                        Text("Send")
-                            .font(Font.custom("Alatsi", size: 18))
-                            .foregroundColor(.white)
-                            .padding(.top, 80)
                     }
                     
                     // Group for error and success messages...
@@ -119,7 +132,6 @@ struct ForgetPasswordView: View {
                         }
                     }
                     
-                    
                 }
                 .task {
                     await viewModel.fetchUser()
@@ -130,7 +142,15 @@ struct ForgetPasswordView: View {
         
     }
 }
-           
+        
+
+//MARK- FORM VALIDATION
+extension ForgetPasswordView: AuthenticationFormProtocol{
+    var formisValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+    }
+}
 
 
 #Preview {
