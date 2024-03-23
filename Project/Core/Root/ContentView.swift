@@ -12,12 +12,28 @@ struct ContentView: View {
     
     var body: some View {
         Group{
-            if viewModel.userSession != nil {
-                ProfileView()
-            } else {
+            if viewModel.userSession == nil {
                 SplashScreenView()
+            } else {
+                //SplashScreenView()
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Label("Home", systemImage: "house")
+                        }
+
+                    CalenderView()
+                        .tabItem {
+                            Label("Calender", systemImage: "calendar")
+                        }
+                    
+                    ProfileView()
+                        .tabItem {
+                            Label("Profile", systemImage: "person")
+                        }
+                }
             }
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

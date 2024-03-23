@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-    let imageName: String
+    let imageName: String?
     let title: String
     let tintColor: Color
     
@@ -21,10 +21,13 @@ struct SettingsRowView: View {
             
             Spacer()
             
-            Image(systemName: imageName)
-                .imageScale(.small)
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(tintColor)
+            if let imageName = imageName {
+                Image(systemName: imageName)
+                    .imageScale(.small)
+                    .font(.title2)
+                    .foregroundColor(tintColor)
+                    .frame(width: 25, height: 25)
+            }
         }
     }
 }

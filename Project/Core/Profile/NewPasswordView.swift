@@ -22,23 +22,31 @@ struct NewPasswordView: View {
             NavigationView {
                 VStack(spacing: 40) {
                     HStack {
-                        Button(action: {
-                            // Handle back navigation
-                        }) {
-                            Image(systemName: "chevron.backward")
-                                .font(Font.custom("Alatsi", size: 15))
-                                .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
-                        }
-                        .frame(width: 40, height: 40)
-                        .overlay(
+                        ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                        .padding(.leading, -45)
+                                .foregroundColor(.clear)
+                                .frame(width: 40, height: 40)
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.black, lineWidth: 1)
+                                    )
+                            
+                            NavigationLink(
+                                destination: ProfileView().navigationBarHidden(true),
+                                label: {
+                                    Image(systemName: "chevron.backward")
+                                        .font(Font.custom("Alatsi", size: 15))
+                                        .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                                })
+                        }.padding(.leading, -45)
+                        
+                        
                         
                         Text("Change Password")
                             .font(Font.custom("Alatsi", size: 25))
                             .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
+                            .padding(.leading)
+                            
                     }
                     
                     Image("restPass")
