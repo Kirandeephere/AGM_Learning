@@ -13,13 +13,11 @@ struct EditProfileView: View {
     @State private var phonenumber = ""
     @State private var errorMessage: String?
     @State private var successMessage: String = ""
-
+    @State private var navigateToHome = false
     @State private var updateStatusMessage: String = ""
-    @State private var navigateToProfile = false
-
     
     @EnvironmentObject var viewModel : AuthViewModel
-
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -116,33 +114,44 @@ struct EditProfileView: View {
                             .offset(x: 65, y: 0)
                         
                     }
-
+                    
                 };
                 
-               
-                //Send Button
-                Button{
-                    Task{
-                        try await viewModel.updateUserInfo(fullname: fullname, email: email ,phonenumber: phonenumber)
-                        print("Update User Info")
-                    }
-                }label: {
-                    Text("Send")
-                        .font(Font.custom("Alatsi", size: 18))
-                        .foregroundColor(.white)
-                    
-                }.foregroundColor(.clear)
-                    .frame(width: 228, height: 38)
-                    .background(Color(red: 0.66, green: 0.13, blue: 0.16))
-                    .disabled(!formisValid)
-                    .opacity(formisValid ? 1.0 : 0.5)
-                    .cornerRadius(5)
-                    .offset(x: 0, y: 20)
                 
+                //Update Profile Button
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.updateUserInfo(fullname: fullname, email: email, phonenumber: phonenumber)
+                            navigateToHome = true
+                        } catch {
+                            // Handle error
+                            errorMessage = error.localizedDescription
+                        }
+                    }
+                }) {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color(red: 0.66, green: 0.13, blue: 0.16))
+                            .frame(width: 228, height: 38)
+                            .cornerRadius(5)
+                        Text("Send")
+                            .font(Font.custom("Alatsi", size: 18))
+                            .foregroundColor(.white)
+                    }
+                }
+                .disabled(!formisValid)
+                .opacity(formisValid ? 1.0 : 0.5)
+                .offset(x: 0, y: 40)
+                .background(
+                    NavigationLink(destination: HomeView().navigationBarHidden(true), isActive: $navigateToHome) {
+                        EmptyView()
+                    }
+                    .hidden()
+                )
             }
             
         }
-        
     }
 }
 

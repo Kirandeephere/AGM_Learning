@@ -26,14 +26,26 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    //Firebase SignIn Function
-    func signIn(withEmail email: String, password: String) async throws{
-        do{
+    func signIn(withEmail email: String, password: String) async throws {
+        do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
             await fetchUser()
-        }catch{
+        } catch {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
+            
+            // Show a dialog indicating incorrect email or password
+            let alertController = UIAlertController(
+                title: "Login Error",
+                message: "Incorrect email or password",
+                preferredStyle: .alert
+            )
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            // Present the alert controller
+            if let currentViewController = UIApplication.shared.windows.first?.rootViewController {
+                currentViewController.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -49,6 +61,7 @@ class AuthViewModel: ObservableObject{
             let encodedUser = try Firestore.Encoder().encode(user) 
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
+            print("DEBUG: User created successfully")
         }catch  {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
         }
@@ -62,6 +75,7 @@ class AuthViewModel: ObservableObject{
             try Auth.auth().signOut()
             self.userSession = nil //Wipes out user session and takes back to login
             self.currentUser = nil //Wipes out current user data model
+            print("DEBUG: User has been logged out successfully")
         }catch{
             print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }
@@ -77,15 +91,18 @@ class AuthViewModel: ObservableObject{
     
     
     //Firebase Fetech User Data Function
-    func fetchUser() async{
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        guard let snapcaht = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-        self.currentUser = try? snapcaht.data(as: User.self)
-        
-        print("DEBUG: Current user is \(self.currentUser)")
+    func fetchUser() async {
+            guard let uid = Auth.auth().currentUser?.uid else { return }
 
-    }
+            do {
+                let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+                self.currentUser = try snapshot.data(as: User.self)
+                
+                print("DEBUG: Current user is \(self.currentUser)")
+            } catch {
+                print("Error fetching user: \(error)")
+            }
+        }
     
     
     
@@ -118,9 +135,9 @@ class AuthViewModel: ObservableObject{
             // Add other fields you want to update here
         ]) { error in
             if let error = error {
-                print("Error updating user information: \(error)")
+                print("DEBUG: Error updating user information: \(error)")
             } else {
-                print("User information updated successfully")
+                print("DEBUG: User information updated successfully")
             }
         }
     }

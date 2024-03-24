@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct NewPasswordView: View {
-    @State private var currentPassword: String = ""
+        @State private var currentPassword: String = ""
         @State private var newPassword: String = ""
         @State private var confirmPassword: String = ""
         @State private var alertMessage: String = ""
@@ -87,20 +87,31 @@ struct NewPasswordView: View {
                             .cornerRadius(5)
                     }
                     
+                    
+                    //Submit Button
                     Button("Submit") {
                         Task {
                             do {
+                                guard formisValid else {
+                                    alertMessage = "Please enter valid passwords"
+                                    showAlert = true
+                                    return
+                                }
+
                                 try await viewModel.updatePassword(newPassword: newPassword, currentPassword: currentPassword) { error in
                                     if let error = error {
-                                        alertMessage = "Failed to update password: \(error.localizedDescription)"
+                                        print("Current password doesnt match!")
+                                        alertMessage = "Current password doesnt match!"
                                     } else {
+                                        print("Password updated successfully!")
                                         alertMessage = "Password updated successfully!"
-                                        try? Auth.auth().signOut()
+                                        try? viewModel.signOut()
                                         isUserAuthenticated = false
                                     }
                                     showAlert = true
                                 }
                             } catch {
+                                print("Error: \(error)")
                                 alertMessage = "Error: \(error.localizedDescription)"
                                 showAlert = true
                             }
@@ -109,22 +120,45 @@ struct NewPasswordView: View {
                     .font(Font.custom("Alatsi", size: 18))
                     .foregroundColor(.white)
                     .padding()
+                    .disabled(!formisValid)
+                    .opacity(formisValid ? 1.0 : 0.5)
                     .background(Color(red: 0.66, green: 0.13, blue: 0.16))
                     .cornerRadius(5)
                     
-                    Group {
-                        if !alertMessage.isEmpty {
-                            Text(alertMessage)
-                                .foregroundColor(alertMessage == "Password updated successfully!" ? .green : .red)
-                                .padding()
-                        }
+                  
+
+                    
+                    // Replace the Group with an alert view
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text(alertMessage),
+                            message: nil,
+                            dismissButton: .default(Text("OK"))
+                        )
                     }
+
                     
                 }
                 .padding()
             }
         }
     }
+
+enum VolunteerError: Error {
+    case wrongCurrentPassword
+    // Add other cases as needed
+}
+
+//MARK- FORM VALIDATION
+extension NewPasswordView: AuthenticationFormProtocol{
+    var formisValid: Bool {
+        return !currentPassword.isEmpty
+        && !newPassword.isEmpty
+        && currentPassword.count > 5
+        && newPassword.count > 5
+        && newPassword == confirmPassword
+    }
+}
 
 #Preview {
     NewPasswordView()
