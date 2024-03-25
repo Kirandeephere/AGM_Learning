@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */; };
+		340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E12802BB112BD0050F82A /* ChooseLanguageView.swift */; };
 		3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAD2BAD247600692F51 /* EditProfileView.swift */; };
 		3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAF2BAD756300692F51 /* NewPasswordView.swift */; };
+		34D0E28E2BB13D1B0081F083 /* ChooseGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */; };
+		34D0E2902BB146C70081F083 /* ChooseLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */; };
+		34D0E2922BB14A340081F083 /* PrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E2912BB14A340081F083 /* PrepareView.swift */; };
+		34D0E2942BB182060081F083 /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E2932BB182060081F083 /* UnlockView.swift */; };
 		34D6E7B62BABC3770095A97B /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6E7B52BABC3770095A97B /* ProjectApp.swift */; };
 		34D6E7BA2BABC3790095A97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6E7B92BABC3790095A97B /* Assets.xcassets */; };
 		34D6E7BE2BABC3790095A97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6E7BD2BABC3790095A97B /* Preview Assets.xcassets */; };
@@ -96,8 +101,13 @@
 
 /* Begin PBXFileReference section */
 		340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		340E12802BB112BD0050F82A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
 		3463DCAD2BAD247600692F51 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3463DCAF2BAD756300692F51 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalsView.swift; sourceTree = "<group>"; };
+		34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLevelView.swift; sourceTree = "<group>"; };
+		34D0E2912BB14A340081F083 /* PrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareView.swift; sourceTree = "<group>"; };
+		34D0E2932BB182060081F083 /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		34D6E7B22BABC3770095A97B /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6E7B52BABC3770095A97B /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		34D6E7B92BABC3790095A97B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,6 +205,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		340E127E2BB112620050F82A /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				340E12802BB112BD0050F82A /* ChooseLanguageView.swift */,
+				34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */,
+				34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */,
+				34D0E2912BB14A340081F083 /* PrepareView.swift */,
+				34D0E2932BB182060081F083 /* UnlockView.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
 		34D6E7A92BABC3760095A97B = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +267,7 @@
 		34D6E7C72BABC5520095A97B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				340E127E2BB112620050F82A /* Language */,
 				9F657EDC2BB104C900197451 /* Booking */,
 				9F7631112BAFF24B008172F3 /* Root */,
 				9F0515CC2BAEB90D004C53DC /* Chatbot */,
@@ -496,6 +519,7 @@
 				9F3910092BAE870F004FF7C4 /* Object.swift in Sources */,
 				34D6E7D22BABCDF10095A97B /* RegistrationView.swift in Sources */,
 				34D6E7D62BABD6A00095A97B /* SettingsRowView.swift in Sources */,
+				340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */,
 				9F390FFC2BADBE5F004FF7C4 /* CourseView.swift in Sources */,
 				3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */,
 				9F3910022BADBEB0004FF7C4 /* VolunteerView.swift in Sources */,
@@ -503,7 +527,9 @@
 				9F3910052BAE8688004FF7C4 /* VolunteerViewModel.swift in Sources */,
 				9F3910002BADBE92004FF7C4 /* ReviewView.swift in Sources */,
 				34D6E7DA2BABDBC70095A97B /* User.swift in Sources */,
+				34D0E28E2BB13D1B0081F083 /* ChooseGoalsView.swift in Sources */,
 				9F390FFE2BADBE6D004FF7C4 /* ChatBotView.swift in Sources */,
+				34D0E2922BB14A340081F083 /* PrepareView.swift in Sources */,
 				34D6E7CE2BABC5B20095A97B /* LoginView.swift in Sources */,
 				9F7631142BAFF24B008172F3 /* SplashScreenView.swift in Sources */,
 				9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */,
@@ -511,7 +537,9 @@
 				9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */,
 				34D6E7D42BABD3830095A97B /* ProfileView.swift in Sources */,
 				340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */,
+				34D0E2902BB146C70081F083 /* ChooseLevelView.swift in Sources */,
 				3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */,
+				34D0E2942BB182060081F083 /* UnlockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +669,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
+				DEVELOPMENT_TEAM = 4893V28X2X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -660,7 +688,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -679,7 +707,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
+				DEVELOPMENT_TEAM = 4893V28X2X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -698,7 +726,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

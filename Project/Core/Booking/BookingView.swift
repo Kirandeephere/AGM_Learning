@@ -213,3 +213,12 @@ extension TimeInterval {
         return String(format: "%02d:%02d hr", hours, minutes)
     }
 }
+
+
+struct BookingView_Previews: PreviewProvider {
+    static var previews: some View {
+        //Dummy test data to preview
+        BookingView(name: "Chan Tai Man", subject: "Computer Science")
+            .environmentObject(AuthViewModel())
+    }
+}
