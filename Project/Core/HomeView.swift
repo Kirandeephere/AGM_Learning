@@ -166,7 +166,7 @@ struct HomeView: View {
                         HStack {
                             
                             NavigationLink {
-                                ChatBotView().navigationBarHidden(true);
+                                ChatHistoryView().navigationBarHidden(true);
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)

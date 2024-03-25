@@ -11,7 +11,7 @@ struct VolunteerDetailView: View {
     let volunteer: Volunteer // Assuming you have a Volunteer struct/model
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             // Header
             HStack {
                 ZStack {
@@ -73,9 +73,20 @@ struct VolunteerDetailView: View {
             
             
             Spacer()
+            
+            // Book Button
+            NavigationLink(destination: BookingView(name: volunteer.Name, subject: volunteer.Major)) {
+                Text("Book")
+                    .font(Font.custom("Alatsi", size: 20))
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
 
         }
         .padding()
+        .navigationBarHidden(true)
     }
 }
 

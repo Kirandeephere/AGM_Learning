@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
+    
     var body: some View {
         Group{
             if viewModel.userSession == nil {
@@ -22,7 +23,7 @@ struct ContentView: View {
                             Label("Home", systemImage: "house")
                         }
 
-                    CalenderView()
+                    CalendarView()
                         .tabItem {
                             Label("Calender", systemImage: "calendar")
                         }

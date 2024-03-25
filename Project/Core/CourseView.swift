@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct CourseView: View {
+    @State private var paths: [Path] = []
+    @State private var currentPath = Path()
+    
     var body: some View {
-        VStack(alignment: .center){
+        VStack {
             Text("CourseView!")
             
             //header
@@ -30,7 +33,60 @@ struct CourseView: View {
                             .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                     })
             }
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Image("template")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    // Drawing paths
+                    ForEach(paths.indices, id: \.self) { index in
+                        Path { path in
+                            path.addPath(paths[index])
+                        }
+                        .stroke(Color.blue, lineWidth: 3)
+                    }
+                    
+                    Path { path in
+                        path.addPath(self.currentPath)
+                    }
+                    .stroke(Color.blue, lineWidth: 3)
+                    .background(Color.white.opacity(0.001))
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged({ value in
+                                let touchPoint = value.location
+                                if self.currentPath.isEmpty {
+                                    self.currentPath.move(to: touchPoint)
+                                } else {
+                                    self.currentPath.addLine(to: touchPoint)
+                                }
+                            })
+                            .onEnded({ value in
+                                self.paths.append(self.currentPath)
+                                self.currentPath = Path()
+                            })
+                    )
+                }
+            }
+            
+            Button(action: {
+                resetDrawing()
+            }) {
+                Text("Reset")
+                    .font(.headline)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
         }
+    }
+    
+    private func resetDrawing() {
+        paths.removeAll()
+        currentPath = Path()
     }
 }
 
