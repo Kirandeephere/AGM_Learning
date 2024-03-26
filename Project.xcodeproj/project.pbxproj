@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */; };
 		340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E12802BB112BD0050F82A /* ChooseLanguageView.swift */; };
+		3452B72B2BB2B98200AB782F /* ShowCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452B72A2BB2B98200AB782F /* ShowCalendar.swift */; };
 		3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAD2BAD247600692F51 /* EditProfileView.swift */; };
 		3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAF2BAD756300692F51 /* NewPasswordView.swift */; };
 		34D0E28E2BB13D1B0081F083 /* ChooseGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		340D8B222BAC4E7B0072E50D /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		340E12802BB112BD0050F82A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
+		3452B72A2BB2B98200AB782F /* ShowCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCalendar.swift; sourceTree = "<group>"; };
 		3463DCAD2BAD247600692F51 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3463DCAF2BAD756300692F51 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
 		34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalsView.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			children = (
 				9F7631122BAFF24B008172F3 /* SplashScreenView.swift */,
 				9F7631132BAFF24B008172F3 /* ContentView.swift */,
+				3452B72A2BB2B98200AB782F /* ShowCalendar.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */,
 				9F76310C2BAFB9CA008172F3 /* BookingView.swift in Sources */,
 				9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */,
+				3452B72B2BB2B98200AB782F /* ShowCalendar.swift in Sources */,
 				34D6E7D42BABD3830095A97B /* ProfileView.swift in Sources */,
 				340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */,
 				34D0E2902BB146C70081F083 /* ChooseLevelView.swift in Sources */,
