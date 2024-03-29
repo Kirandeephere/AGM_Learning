@@ -15,7 +15,7 @@ struct UnlockView: View {
             VStack() {
                 
                 //Back Button Arrow
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: HomeView().navigationBarHidden(true)) {
                     Image("cross")
                         .font(.title)
                         .foregroundColor(.blue)

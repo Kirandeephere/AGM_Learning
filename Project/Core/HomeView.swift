@@ -130,7 +130,7 @@ struct HomeView: View {
                         HStack {
                             
                             NavigationLink {
-                                CourseView().navigationBarHidden(true);
+                                ChooseLanguageView().navigationBarHidden(true);
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)
@@ -228,9 +228,20 @@ struct HomeView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now()+2) {
                 print("fetchBookings start")
-                bookingStore.fetchBookings(authViewModel: viewModel) // Fetch the bookings after 30 seconds
+                bookingStore.fetchBookings(authViewModel: viewModel) // Fetch the bookings after 3 seconds
                 print("fetchBookingsdone")
+                
+                print("fetchUser start")
+                Task {
+                    do {
+                        try await viewModel.fetchUser()
+                        print("fetchUser done")
+                    } catch {
+                        print("Error fetching user: \(error)")
+                    }
+                }
             }
+            
             
         }
     }

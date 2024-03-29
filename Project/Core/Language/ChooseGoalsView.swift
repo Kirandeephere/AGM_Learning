@@ -11,6 +11,7 @@ import SwiftUI
 struct ChooseGoalsView: View {
     @State private var selectedGoals: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var isChooseLevelViewActive = false
 
     
     var body: some View {
@@ -20,7 +21,7 @@ struct ChooseGoalsView: View {
             VStack() {
                 
                 //Back Button Arrow
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: ChooseLanguageView().navigationBarHidden(true)) {
                     Image("backarrow")
                         .font(.title)
                         .foregroundColor(.blue)
@@ -65,6 +66,9 @@ struct ChooseGoalsView: View {
             Button(action: {
                 // Button action
                 print("DEBUG: Continue Button Clicked")
+                
+                // Set the state variable to activate ChooseLevelView
+                isChooseLevelViewActive = true
             }) {
                 Text("Continue")
                     .font(.system(size: 20, weight: .bold))
@@ -76,6 +80,18 @@ struct ChooseGoalsView: View {
                     )
             }
             .padding(.top, 20)
+            .disabled(selectedGoals.isEmpty) // Disable the button if nothing is selected.
+
+            .background(
+            // Navigate to ChooseLevelView on clicked button
+                    NavigationLink(
+                            destination: ChooseLevelView().navigationBarHidden(true),
+                            isActive: $isChooseLevelViewActive,
+                            label: {
+                                        EmptyView()
+                                    }
+                                )
+                        )
                 
                 
                 //Navigation Link Text

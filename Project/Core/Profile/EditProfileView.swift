@@ -34,8 +34,9 @@ struct EditProfileView: View {
                                         .stroke(Color.black, lineWidth: 1)
                                 )
                             
+                            //Back Button takes you back to homeView()
                             NavigationLink(
-                                destination: ProfileView().navigationBarHidden(true),
+                                destination: HomeView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
                                         .font(Font.custom("Alatsi", size: 15))
@@ -118,14 +119,15 @@ struct EditProfileView: View {
                 };
                 
                 
-                //Update Profile Button
+                // Update Profile Button
                 Button(action: {
                     Task {
                         do {
                             try await viewModel.updateUserInfo(fullname: fullname, email: email, phonenumber: phonenumber)
+                            print("DEBUG: User Data Successfully Updated")
                             navigateToHome = true
                         } catch {
-                            // Handle error
+                            print("DEBUG: Update User Data Error")
                             errorMessage = error.localizedDescription
                         }
                     }
@@ -149,11 +151,15 @@ struct EditProfileView: View {
                     }
                     .hidden()
                 )
+                
+                
             }
             
         }
     }
 }
+
+
 
 
 //MARK- FORM VALIDATION

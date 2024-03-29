@@ -12,6 +12,7 @@ struct CourseView: View {
     @State private var currentPath = Path()
     
     var body: some View {
+        NavigationView{
         VStack {
             Text("CourseView!")
             
@@ -81,6 +82,7 @@ struct CourseView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+        }
         }
     }
     

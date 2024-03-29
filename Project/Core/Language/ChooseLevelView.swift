@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ChooseLevelView: View {
     @State private var selectedLevel: String = ""
+    @State private var isChooseLevelViewActive = false
+
 
     var body: some View {
         NavigationView {
-            
             
             //Headers - Title, Back Button
             VStack() {
                 
                 //Back Button Arrow
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true)) {
                     Image("backarrow")
                         .font(.title)
                         .foregroundColor(.blue)
@@ -54,16 +55,18 @@ struct ChooseLevelView: View {
                         LevelSelectionRow(level: "I'm Samurai", isSelected: selectedLevel == "I'm Samurai") {
                             selectedLevel = "I'm Samurai"
                 }
-                   }
-                   .padding(.horizontal, 20)
+            
             
             
             //IDK Button
             Button(action: {
                 // Button action
                 print("DEBUG: IDK Button Clicked")
+                
+                // Set the state variable to activate ChooseLevelView
+                isChooseLevelViewActive = true
             }) {
-                Text("I dont know")
+                Text("I don't know")
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 319, height: 60)
@@ -73,6 +76,21 @@ struct ChooseLevelView: View {
                     )
             }
             .padding(.top, 20)
+            .disabled(selectedLevel.isEmpty) // Disable the button if nothing is selected
+            .background(
+            // Navigate to PrepareView on clicked button
+                    NavigationLink(
+                            destination: PrepareView().navigationBarHidden(true),
+                            isActive: $isChooseLevelViewActive,
+                            label: {
+                                        EmptyView()
+                                    }
+                                )
+                        )
+            
+            }
+            .padding(.horizontal, 20)
+                
         }
         
     }
