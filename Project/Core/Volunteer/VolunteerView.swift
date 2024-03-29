@@ -184,7 +184,7 @@ struct VolunteerView: View {
         let initials = name
             .split(separator: " ")
             .prefix(2)
-            .map { String($0.first ?? Character("")) }
+            .map { String($0.first ?? Swift.Character("")) }
             .joined()
             .uppercased()
         return initials

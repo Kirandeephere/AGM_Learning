@@ -21,7 +21,7 @@ class BookingStore: ObservableObject {
     @Published var bookings: [Booking] = []
     
     @MainActor func fetchBookings(authViewModel: AuthViewModel) {
-        if let currentUserId = authViewModel.currentUser?.fullname {
+        if let currentUserId = authViewModel.currentUser?.id {
             print("Fetching bookings for user with ID: \(currentUserId)")
             
             let database = Database.database().reference()

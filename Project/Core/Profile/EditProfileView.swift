@@ -36,7 +36,7 @@ struct EditProfileView: View {
                             
                             //Back Button takes you back to homeView()
                             NavigationLink(
-                                destination: HomeView().navigationBarHidden(true),
+                                destination: ProfileView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
                                         .font(Font.custom("Alatsi", size: 15))
@@ -146,7 +146,7 @@ struct EditProfileView: View {
                 .opacity(formisValid ? 1.0 : 0.5)
                 .offset(x: 0, y: 40)
                 .background(
-                    NavigationLink(destination: HomeView().navigationBarHidden(true), isActive: $navigateToHome) {
+                    NavigationLink(destination: ProfileView().navigationBarHidden(true), isActive: $navigateToHome) {
                         EmptyView()
                     }
                     .hidden()

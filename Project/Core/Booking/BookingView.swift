@@ -46,7 +46,7 @@ struct BookingView: View {
     private func saveBookingToFirebase() {
         guard let user = viewModel.currentUser else { return }
         
-        let userBookingsRef = Database.database().reference().child("Bookings").child(user.fullname)
+        let userBookingsRef = Database.database().reference().child("Bookings").child(user.id)
         let bookingID = userBookingsRef.childByAutoId().key ?? ""
         
         let dateFormatter = DateFormatter()

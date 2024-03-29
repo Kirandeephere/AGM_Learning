@@ -130,7 +130,8 @@ struct HomeView: View {
                         HStack {
                             
                             NavigationLink {
-                                ChooseLanguageView().navigationBarHidden(true);
+                                // ChooseLanguageView().navigationBarHidden(true);
+                                WritingBaseView()
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)
@@ -241,8 +242,6 @@ struct HomeView: View {
                     }
                 }
             }
-            
-            
         }
     }
     

@@ -144,6 +144,20 @@ struct ProfileView: View {
                 }
             }
         }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                print("fetchUser start")
+                Task {
+                    do {
+                        try await viewModel.fetchUser()
+                        print("fetchUser done")
+                    } catch {
+                        print("Error fetching user: \(error)")
+                    }
+                }
+            }
+        }
+
             
     }
 }

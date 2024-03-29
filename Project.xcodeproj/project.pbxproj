@@ -104,6 +104,10 @@
 		9F7631142BAFF24B008172F3 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7631122BAFF24B008172F3 /* SplashScreenView.swift */; };
 		9F7631152BAFF24B008172F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7631132BAFF24B008172F3 /* ContentView.swift */; };
 		9F7631192BB00F91008172F3 /* MyBookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7631182BB00F91008172F3 /* MyBookings.swift */; };
+		9FFAEF2C2BB6C56A0049AAFE /* WritingBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAEF2B2BB6C56A0049AAFE /* WritingBaseView.swift */; };
+		9FFAEF2E2BB6C5A20049AAFE /* ShowStrokeOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAEF2D2BB6C5A20049AAFE /* ShowStrokeOrderView.swift */; };
+		9FFAEF302BB6C5BB0049AAFE /* WriteCharUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAEF2F2BB6C5BB0049AAFE /* WriteCharUserView.swift */; };
+		9FFAEF322BB6C5D70049AAFE /* WriteCharAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFAEF312BB6C5D70049AAFE /* WriteCharAdminView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +156,10 @@
 		9F7631122BAFF24B008172F3 /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F7631132BAFF24B008172F3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9F7631182BB00F91008172F3 /* MyBookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookings.swift; sourceTree = "<group>"; };
+		9FFAEF2B2BB6C56A0049AAFE /* WritingBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingBaseView.swift; sourceTree = "<group>"; };
+		9FFAEF2D2BB6C5A20049AAFE /* ShowStrokeOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStrokeOrderView.swift; sourceTree = "<group>"; };
+		9FFAEF2F2BB6C5BB0049AAFE /* WriteCharUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCharUserView.swift; sourceTree = "<group>"; };
+		9FFAEF312BB6C5D70049AAFE /* WriteCharAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCharAdminView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,9 +227,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		340E127E2BB112620050F82A /* Language */ = {
+		340E127E2BB112620050F82A /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				9FFAEF2A2BB6C5110049AAFE /* Writing */,
 				340E12802BB112BD0050F82A /* ChooseLanguageView.swift */,
 				34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */,
 				34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */,
@@ -229,7 +238,7 @@
 				34D0E2932BB182060081F083 /* UnlockView.swift */,
 				348A37AC2BB65BFB00DC102C /* Japaness Course */,
 			);
-			path = Language;
+			path = Courses;
 			sourceTree = "<group>";
 		};
 		348A37AC2BB65BFB00DC102C /* Japaness Course */ = {
@@ -292,7 +301,7 @@
 		34D6E7C72BABC5520095A97B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				340E127E2BB112620050F82A /* Language */,
+				340E127E2BB112620050F82A /* Courses */,
 				9F657EDC2BB104C900197451 /* Booking */,
 				9F7631112BAFF24B008172F3 /* Root */,
 				9F0515CC2BAEB90D004C53DC /* Chatbot */,
@@ -404,6 +413,17 @@
 				9F7631132BAFF24B008172F3 /* ContentView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		9FFAEF2A2BB6C5110049AAFE /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAEF2B2BB6C56A0049AAFE /* WritingBaseView.swift */,
+				9FFAEF2F2BB6C5BB0049AAFE /* WriteCharUserView.swift */,
+				9FFAEF2D2BB6C5A20049AAFE /* ShowStrokeOrderView.swift */,
+				9FFAEF312BB6C5D70049AAFE /* WriteCharAdminView.swift */,
+			);
+			path = Writing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,15 +584,19 @@
 				9F390FFE2BADBE6D004FF7C4 /* ChatBotView.swift in Sources */,
 				34D0E2922BB14A340081F083 /* PrepareView.swift in Sources */,
 				34D6E7CE2BABC5B20095A97B /* LoginView.swift in Sources */,
+				9FFAEF322BB6C5D70049AAFE /* WriteCharAdminView.swift in Sources */,
 				9F7631142BAFF24B008172F3 /* SplashScreenView.swift in Sources */,
 				348A37B22BB65CF700DC102C /* HiraganaLessonView.swift in Sources */,
+				9FFAEF2E2BB6C5A20049AAFE /* ShowStrokeOrderView.swift in Sources */,
 				9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */,
 				9F76310C2BAFB9CA008172F3 /* BookingView.swift in Sources */,
+				9FFAEF302BB6C5BB0049AAFE /* WriteCharUserView.swift in Sources */,
 				9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */,
 				34D6E7D42BABD3830095A97B /* ProfileView.swift in Sources */,
 				340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */,
 				9F51DAF22BB45D4800B9A913 /* CustomCalendar.swift in Sources */,
 				9F2E904D2BB55E3D0004FEE7 /* UpcomingBookings.swift in Sources */,
+				9FFAEF2C2BB6C56A0049AAFE /* WritingBaseView.swift in Sources */,
 				34D0E2902BB146C70081F083 /* ChooseLevelView.swift in Sources */,
 				3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */,
 				34D0E2942BB182060081F083 /* UnlockView.swift in Sources */,
@@ -705,7 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4893V28X2X;
+				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -724,7 +748,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -743,7 +767,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4893V28X2X;
+				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -762,7 +786,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
