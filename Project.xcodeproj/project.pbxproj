@@ -11,6 +11,9 @@
 		340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E12802BB112BD0050F82A /* ChooseLanguageView.swift */; };
 		3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAD2BAD247600692F51 /* EditProfileView.swift */; };
 		3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAF2BAD756300692F51 /* NewPasswordView.swift */; };
+		348A37AE2BB65C3700DC102C /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37AD2BB65C3700DC102C /* LessonView.swift */; };
+		348A37B12BB65CF700DC102C /* HiraganaStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */; };
+		348A37B22BB65CF700DC102C /* HiraganaLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */; };
 		34D0E28E2BB13D1B0081F083 /* ChooseGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */; };
 		34D0E2902BB146C70081F083 /* ChooseLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */; };
 		34D0E2922BB14A340081F083 /* PrepareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E2912BB14A340081F083 /* PrepareView.swift */; };
@@ -108,6 +111,9 @@
 		340E12802BB112BD0050F82A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
 		3463DCAD2BAD247600692F51 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3463DCAF2BAD756300692F51 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		348A37AD2BB65C3700DC102C /* LessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaStartView.swift; sourceTree = "<group>"; };
+		348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaLessonView.swift; sourceTree = "<group>"; };
 		34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalsView.swift; sourceTree = "<group>"; };
 		34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLevelView.swift; sourceTree = "<group>"; };
 		34D0E2912BB14A340081F083 /* PrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareView.swift; sourceTree = "<group>"; };
@@ -221,8 +227,19 @@
 				34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */,
 				34D0E2912BB14A340081F083 /* PrepareView.swift */,
 				34D0E2932BB182060081F083 /* UnlockView.swift */,
+				348A37AC2BB65BFB00DC102C /* Japaness Course */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		348A37AC2BB65BFB00DC102C /* Japaness Course */ = {
+			isa = PBXGroup;
+			children = (
+				348A37AD2BB65C3700DC102C /* LessonView.swift */,
+				348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */,
+				348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */,
+			);
+			path = "Japaness Course";
 			sourceTree = "<group>";
 		};
 		34D6E7A92BABC3760095A97B = {
@@ -521,9 +538,11 @@
 			files = (
 				34D6E8172BABDF0B0095A97B /* AuthViewModel.swift in Sources */,
 				9F390FF82BADB6E2004FF7C4 /* HomeView.swift in Sources */,
+				348A37AE2BB65C3700DC102C /* LessonView.swift in Sources */,
 				9F7631152BAFF24B008172F3 /* ContentView.swift in Sources */,
 				9F3910072BAE86AB004FF7C4 /* VolunteerDetailView.swift in Sources */,
 				34D6E7B62BABC3770095A97B /* ProjectApp.swift in Sources */,
+				348A37B12BB65CF700DC102C /* HiraganaStartView.swift in Sources */,
 				9F7631192BB00F91008172F3 /* MyBookings.swift in Sources */,
 				9F0515CE2BAEB954004C53DC /* Color.swift in Sources */,
 				34D6E7D02BABC7130095A97B /* InputView.swift in Sources */,
@@ -546,6 +565,7 @@
 				34D0E2922BB14A340081F083 /* PrepareView.swift in Sources */,
 				34D6E7CE2BABC5B20095A97B /* LoginView.swift in Sources */,
 				9F7631142BAFF24B008172F3 /* SplashScreenView.swift in Sources */,
+				348A37B22BB65CF700DC102C /* HiraganaLessonView.swift in Sources */,
 				9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */,
 				9F76310C2BAFB9CA008172F3 /* BookingView.swift in Sources */,
 				9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */,
