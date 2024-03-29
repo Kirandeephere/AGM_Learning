@@ -11,6 +11,7 @@ import Firebase
 @main
 struct ProjectApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject private var bookingStore = BookingStore()
     
     init(){
         FirebaseApp.configure()
@@ -20,6 +21,7 @@ struct ProjectApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(bookingStore)
         }
     }
 }

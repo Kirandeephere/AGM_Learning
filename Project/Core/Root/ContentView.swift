@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
-    
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         Group{
-            if viewModel.userSession == nil {
+            if authViewModel.userSession == nil {
                 SplashScreenView()
             } else {
                 //SplashScreenView()

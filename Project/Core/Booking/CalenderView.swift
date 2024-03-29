@@ -17,6 +17,7 @@ struct CalendarView: View {
     @State private var bookings: [Booking] = []
     @State private var isShowingBookingView = false
     
+    
     var body: some View {
             
         NavigationView {
@@ -51,7 +52,7 @@ struct CalendarView: View {
                 .padding(.bottom, 40)
                 
 
-                ShowCalendar()
+                CustomCalendar()
 
                 Spacer()
             }

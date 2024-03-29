@@ -8,10 +8,12 @@
 import SwiftUI
 import Firebase
 
+
 struct HomeView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var searchQuery: String = "" // Track the search query
     @State private var showSearchResults = false // Track if search results view is shown
+    @EnvironmentObject var bookingStore: BookingStore
     
     var body: some View {
         NavigationView {
@@ -90,26 +92,37 @@ struct HomeView: View {
                     .padding(.bottom)
                     
                     // Upcomingschedule Cards
+                    // Upcomingschedule Cards
                     VStack(alignment: .center) {
                         Text("Upcoming Appointments")
                             .font(Font.custom("Alatsi", size: 20))
                             .foregroundColor(Color(red: 0.51, green: 0.03, blue: 0.06))
                         
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(Color(red: 0.71, green: 0.22, blue: 0.25))
-                                .frame(width: 324, height: 160)
+                        
+                        if !filteredBookings.isEmpty {
                             
-                            Text("No upcoming bookings found for the current month.")
-                                .frame(width: 300)
-                                .multilineTextAlignment(.center)
-                                .font(Font.custom("Alatsi", size: 20))
-                                .foregroundColor(.white)
-                            
-                            
+                                HStack(spacing: 10) {
+                                    UpcomingBookings(bookings: filteredBookings)
+                                }
+                                .padding(.horizontal)
+   
+                        } else {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 8)
+                                    .foregroundColor(Color(red: 0.71, green: 0.22, blue: 0.25))
+                                    .frame(width: 324, height: 160)
+                                Text("No upcoming bookings found for the current month.")
+                                    .frame(width: 300)
+                                    .multilineTextAlignment(.center)
+                                    .font(Font.custom("Alatsi", size: 20))
+                                    .foregroundColor(.white)
+                                    
+                                
+                            }.padding(.top)
                         }
                         
-                    }.padding(.bottom)
+                        
+                    }
                     
                     // Main Content
                     Group{
@@ -212,6 +225,31 @@ struct HomeView: View {
                 }
             }
         }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                print("fetchBookings start")
+                bookingStore.fetchBookings(authViewModel: viewModel) // Fetch the bookings after 30 seconds
+                print("fetchBookingsdone")
+            }
+            
+        }
+    }
+    
+    private var filteredBookings: [Booking] {
+        let currentCalendar = Calendar.current
+        let currentDate = currentCalendar.startOfDay(for: Date()) // Remove the time component from the current date
+
+        return bookingStore.bookings.filter { booking in
+            let bookingDate = currentCalendar.startOfDay(for: booking.date) // Remove the time component from the booking date
+
+            let bookingMonth = currentCalendar.component(.month, from: bookingDate)
+            let bookingYear = currentCalendar.component(.year, from: bookingDate)
+
+            let isFiltered = bookingDate >= currentDate && bookingMonth == currentCalendar.component(.month, from: currentDate) && bookingYear == currentCalendar.component(.year, from: currentDate)
+
+
+            return isFiltered
+        }
     }
 }
 
@@ -220,3 +258,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+

@@ -17,6 +17,62 @@ struct Booking: Identifiable {
     let duration: String
 }
 
+class BookingStore: ObservableObject {
+    @Published var bookings: [Booking] = []
+    
+    @MainActor func fetchBookings(authViewModel: AuthViewModel) {
+        if let currentUserId = authViewModel.currentUser?.fullname {
+            print("Fetching bookings for user with ID: \(currentUserId)")
+            
+            let database = Database.database().reference()
+            let userBookingsRef = database.child("Bookings").child(currentUserId)
+
+            userBookingsRef.observeSingleEvent(of: .value) { snapshot in
+                var fetchedBookings: [Booking] = []
+                
+                print("Received snapshot with \(snapshot.childrenCount) child nodes")
+
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd" // Set the correct date format
+
+                for case let childSnapshot as DataSnapshot in snapshot.children {
+                    if let appointmentData = childSnapshot.value as? [String: Any],
+                       let duration = appointmentData["duration"] as? String,
+                       let volunteer = appointmentData["name"] as? String,
+                       let dateString = appointmentData["date"] as? String,
+                       let time = appointmentData["time"] as? String,
+                       let subject = appointmentData["subject"] as? String {
+
+                        if let date = dateFormatter.date(from: dateString) {
+                            // Ensure that the time components are set to midnight (00:00:00)
+                            let calendar = Calendar.current
+                            let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+                            if let dateWithoutTime = calendar.date(from: dateComponents) {
+                                let booking = Booking(subject: subject, volunteer: volunteer, date: dateWithoutTime, time: time, duration: duration)
+                                fetchedBookings.append(booking)
+                            }
+                        }
+                    }
+                }
+                
+                print("Fetched \(fetchedBookings.count) bookings")
+
+                // Sort the bookings based on the date (in ascending order)
+                fetchedBookings.sort { (booking1, booking2) -> Bool in
+                    return booking1.date < booking2.date
+                }
+
+                // Update the main bookings array and trigger re-computation of filteredBookings
+                self.bookings = fetchedBookings
+                
+                print("Updated bookings array with \(self.bookings.count) bookings")
+            }
+        } else {
+            print("No current user ID found")
+        }
+    }
+}
+
 struct CardView: View {
     let bookings: [Booking]
     
@@ -102,17 +158,17 @@ struct CardView: View {
 struct MyBookingView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
-    @State private var bookings: [Booking] = []
+    @EnvironmentObject var bookingStore: BookingStore
     @State private var selectedFilter = 0 // 0 for "Today+future Appointments", 1 for "Past Appointments"
     
     var filteredBookings: [Booking] {
         let currentDate = Date()
         if selectedFilter == 0 {
             // Filter today and future appointments
-            return bookings.filter { $0.date >= Calendar.current.startOfDay(for: currentDate) }
+            return bookingStore.bookings.filter { $0.date >= Calendar.current.startOfDay(for: currentDate) }
         } else {
             // Filter past appointments
-            return bookings.filter { $0.date < Calendar.current.startOfDay(for: currentDate) }
+            return bookingStore.bookings.filter { $0.date < Calendar.current.startOfDay(for: currentDate) }
         }
     }
     
@@ -165,57 +221,9 @@ struct MyBookingView: View {
                 Spacer() // Add any additional spacing if needed
                 
             }
-            .onAppear {
-                fetchBookings()
-                
-            }
-        }
-    }
-    
-    private func fetchBookings() {
-        if let currentUserId = authViewModel.currentUser?.fullname{
-            let database = Database.database().reference()
-            let userBookingsRef = database.child("Bookings").child(currentUserId)
-
-            userBookingsRef.observeSingleEvent(of: .value) { snapshot in
-                var fetchedBookings: [Booking] = []
-
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd" // Set the correct date format
-
-                for case let childSnapshot as DataSnapshot in snapshot.children {
-                    if let appointmentData = childSnapshot.value as? [String: Any],
-                       let duration = appointmentData["duration"] as? String,
-                       let volunteer = appointmentData["name"] as? String,
-                       let dateString = appointmentData["date"] as? String,
-                       let time = appointmentData["time"] as? String,
-                       let subject = appointmentData["subject"] as? String{
-
-                        if let date = dateFormatter.date(from: dateString) {
-                            // Ensure that the time components are set to midnight (00:00:00)
-                            let calendar = Calendar.current
-                            let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
-                            if let dateWithoutTime = calendar.date(from: dateComponents) {
-                                let booking = Booking(subject: subject, volunteer: volunteer, date: dateWithoutTime, time: time, duration: duration)
-                                fetchedBookings.append(booking)
-                            }
-                        }
-                    }
-                }
-
-                // Sort the bookings based on the date (in ascending order)
-                fetchedBookings.sort { (booking1, booking2) -> Bool in
-                    return booking1.date < booking2.date
-                }
-
-                // Update the main bookings array and trigger re-computation of filteredBookings
-                self.bookings = fetchedBookings
-                
-                
-            }
         }
     }
     
     
-
+    
 }
