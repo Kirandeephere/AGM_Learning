@@ -25,26 +25,25 @@ struct UnlockView: View {
                 
                 //Title
                 Text("Speak a new \nlanguage now.")
-                    .font(Font.custom("Circular Std", size: 30).weight(.bold))
+                    .font(Font.custom("Alatsi-Regular", size: 30))
                     .lineSpacing(14)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
+                    .foregroundColor(Color(hex: 0x686C80))
                     .offset(x: 0, y: -20)
                 
                 
                //Learning Info Stack
                 ZStack {
                     Text("Unlock 2.700+ Lessons\nSmart Pronunciation Correction\nFull Sleep Lessons library\n20,000+ Visual Flashcards\nVoices by 90+ Native Speakers\nEverything in fluent Japanese")
-                        .font(Font.custom("Circular Std", size: 16).weight(.medium))
+                        .font(Font.custom("Alatsi-Regular", size: 16))
                         .lineSpacing(20)
-                        .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
+                        .foregroundColor(Color(hex: 0x686C80))
                         .offset(x: 14, y: 0)
                     
                     ForEach(0..<6) { index in
                         Circle()
-                            .foregroundColor(.clear)
+                            .foregroundColor(Color(hex: 0xC5C8D8))
                             .frame(width: 16, height: 16)
-                            .background(Color(red: 0.77, green: 0.78, blue: 0.85))
                             .clipShape(Circle())
                             .offset(x: -123, y: CGFloat(-99 + (index * 39)))
                     }
@@ -59,23 +58,32 @@ struct UnlockView: View {
                     print("DEBUG: Try Button Clicked")
                 }) {
                     Text("Try it free")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(Font.custom("Alatsi-Regular", size: 20))
                         .foregroundColor(.white)
                         .frame(width: 319, height: 60)
                         .background(
                             RoundedRectangle(cornerRadius: 52)
-                                .fill(Color(red: 0.6627451, green: 0.1254902, blue: 0.15686275))
+                                .fill(Color(hex: 0xA92028))
                         )
                 }
                 .padding(.top, 20)
                 
                 
                 //Normal Text
-                Text("3 Days free, then R$ 110,90 per semester. Easily cancel anytime on app store. You won't be charge now.")
-                    .font(.custom("Rubik Regular", size: 12))
-                    .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.5))
-                    .padding(.top, 20)
-                    .padding(.horizontal, 40)
+                HStack {
+                    Text("3 Days free, then R$ 110,90 per semester. ")
+                        .font(Font.custom("Alatsi-Regular", size: 12))
+                        .foregroundColor(Color(hex: 0x000000))
+
+                    +
+                    Text("Easily cancel anytime on app store. You won't be charge now.")
+                        .font(Font.custom("Alatsi-Regular", size: 12))
+                        .foregroundColor(Color(hex: 0x686C80))
+                }
+                .padding(.top, 20)
+                .padding(.horizontal, 40)
+                .multilineTextAlignment(.center)
+
             
             }
         }

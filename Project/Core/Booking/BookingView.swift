@@ -86,7 +86,8 @@ struct BookingView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("Booking Details")
-                .font(.largeTitle)
+                .font(Font.custom("Alatsi-Regular", size: 30))
+                .foregroundColor(Color(hex: 0x14214C))
                 .padding()
             
             ScrollView {
@@ -149,7 +150,7 @@ struct BookingView: View {
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(Color(.systemGray6))
+                                .foregroundColor(Color(hex: 0xEEF0F7))
                         )
                         
                         
@@ -177,7 +178,7 @@ struct BookingView: View {
                         .padding()
                         .background(
                         RoundedRectangle(cornerRadius: 8)
-                        .foregroundColor(Color(.systemGray6))
+                        .foregroundColor(Color(hex: 0xEEF0F7))
                         )
             
                         
@@ -195,13 +196,17 @@ struct BookingView: View {
                         }
                     }) {
                         Text("Book")
-                            .font(Font.custom("Alatsi", size: 20))
+                            .font(Font.custom("Alatsi-Regular", size: 20))
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.blue)
                             .cornerRadius(10)
+                            .frame(width: 319, height: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 52)
+                                    .fill(Color(hex: 0xA92028))
+                            )
                     }
-                    .offset(x: 140)
+                    .offset(x: 20)
                     .padding()
                     .alert(isPresented: $isShowingBookCompletionAlert) {
                         Alert(
@@ -215,7 +220,6 @@ struct BookingView: View {
                         }
                     )
                 }
-                .padding()
             }
         }
     }
@@ -223,18 +227,20 @@ struct BookingView: View {
     private func bookingDetail(title: String, value: String) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(.headline)
+                .font(Font.custom("Alatsi-Regular", size: 16))
+                .foregroundColor(Color(hex: 0x14214C))
                 .padding(.horizontal, 20)
 
             
             Text(value)
-                .font(.subheadline)
-                .foregroundColor(.gray)
+                .font(Font.custom("Alatsi-Regular", size: 15))
+                .foregroundColor(Color(hex: 0x686C80))
                 .frame(width: 350, height: 50)
-                .background(Color(.systemGray5))
+                .background(Color(hex: 0xEEF0F7))
                 .cornerRadius(8)
                 .padding(.horizontal, 20)
         }
+
     }
     
     private func dateTimePicker(title: String, date: Binding<Date>, components: DatePickerComponents) -> some View {

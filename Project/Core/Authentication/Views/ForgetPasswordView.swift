@@ -34,63 +34,64 @@ struct ForgetPasswordView: View {
                             destination: LoginView().navigationBarHidden(true),
                             label: {
                                 Image(systemName: "chevron.backward")
-                                    .font(Font.custom("Alatsi", size: 15))
-                                    .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                                    .font(Font.custom("Alatsi-Regular", size: 15))
+                                    .foregroundColor(Color(hex: 0x14214C))
                             })
                     }
                     .offset(x: -45, y: 0)
                     
                     Text("Forget Password")
-                        .font(Font.custom("Alatsi", size: 25))
-                        .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
+                        .font(Font.custom("Alatsi-Regular", size: 25))
+                        .foregroundColor(Color(hex: 0x14214C))
                         .offset(x: -20, y: 0)
                     
                 }
-                .offset(x: 0, y: -100)
+                .offset(x: 0, y: -60)
                 
                 //Lock Logo
                 ZStack{
                     
                     Image(systemName: "circle.fill")
                         .resizable()
-                        .foregroundColor(Color(red: 0.93, green: 0.93, blue: 0.93, opacity: 1.0))
+                        .foregroundColor(Color(hex: 0xECECEC))
                         .frame(width: 150, height: 150)
                     Image("lock")
                         .resizable()
-                        .frame(width: 70, height: 75)
+                        .frame(width: 120, height: 130)
                     
-                }.padding(.bottom)
+                }.padding(.bottom, 20)
                 
                 Text("Please enter the email address to receive \n the password reset link")
-                    .font(Font.custom("Alatsi", size: 15))
-                    .foregroundColor(Color(red: 0.41, green: 0.41, blue: 0.41))
+                    .font(Font.custom("Alatsi-Regular", size: 15))
+                    .foregroundColor(Color(hex: 0x696969))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 23.0)
+                    .padding(.bottom, 60.0)
                 
-                Text("Email Address")
-                    .font(Font.custom("Alatsi", size: 15))
-                    .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                Text("Email ID")
+                    .font(Font.custom("Alatsi-Regular", size: 15))
+                    .foregroundColor(Color(hex: 0x696969))
                     .offset(x: -113.50, y: 0)
                 
                 // Enter Email
                 ZStack {
                     Rectangle()
-                        .foregroundColor(.clear)
                         .frame(width: 307, height: 38)
-                        .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                        .foregroundColor(Color(hex: 0xECECEC))
                         .cornerRadius(5)
                     
                     TextField("Enter Your Email Address", text: $email)
+                        .font(Font.custom("Alatsi-Regular", size: 15))
                         .offset(x: 65, y: 0)
-                        .textInputAutocapitalization(.never) //No auto caps text. 
+                        .foregroundColor(Color(hex: 0x808080))
+                        .textInputAutocapitalization(.never) //No auto caps text.
                 }
+                .padding(.top, 5)
                 
                 // Reset Button
                 ZStack {
                     Rectangle()
-                        .foregroundColor(.clear)
                         .frame(width: 228, height: 38)
-                        .background(Color(red: 0.66, green: 0.13, blue: 0.16))
+                        .foregroundColor(Color(hex: 0xA92028))
                         .cornerRadius(5)
                         .offset(x: 0, y: 40)
                     
@@ -99,7 +100,7 @@ struct ForgetPasswordView: View {
                         isActive: $navigateToLogin,
                         label: {
                             Text("Send")
-                                .font(Font.custom("Alatsi", size: 18))
+                                .font(Font.custom("Alatsi-Regular", size: 18))
                                 .foregroundColor(.white)
                                 .disabled(!formisValid)
                                 .opacity(formisValid ? 1.0 : 0.5)

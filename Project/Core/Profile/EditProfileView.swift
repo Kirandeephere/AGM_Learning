@@ -13,7 +13,7 @@ struct EditProfileView: View {
     @State private var phonenumber = ""
     @State private var errorMessage: String?
     @State private var successMessage: String = ""
-    @State private var navigateToHome = false
+    @State private var navigateToProfile = false
     @State private var updateStatusMessage: String = ""
     
     @EnvironmentObject var viewModel : AuthViewModel
@@ -39,58 +39,63 @@ struct EditProfileView: View {
                                 destination: ProfileView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
-                                        .font(Font.custom("Alatsi", size: 15))
-                                        .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                                        .font(Font.custom("Alatsi-Regular", size: 15))
+                                        .foregroundColor(Color(hex: 0x14214C))
                                 })
                         }
                         .offset(x: -45, y: 0)
                         
                         Text("Profile")
                             .font(Font.custom("Alatsi", size: 25))
-                            .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
-                            .offset(x: -20, y: 0)
+                            .foregroundColor(Color(hex: 0x14214C))
+                            .offset(x: -30, y: 0)
                         
                     }
-                    .offset(x: -50, y: -30)
+                    .offset(x: -50, y: -100)
                     
                     
                     //Image
                     ZStack{
-                        Image("usericon")
+                        Image("user-square")
                             .resizable()
                             .frame(width: 130, height: 130)
                         
-                    }.padding(.bottom, 30)
+                        Text("Change Profile Picture")
+                            .font(Font.custom("Alatsi-Regular", size: 15))
+                            .foregroundColor(Color(hex: 0x808080))
+                            .offset(x: 0, y: 80)
+                        
+                    }.offset(x: 0, y: -80)
                 };
                 
                 Group{
                     Text("Full Name")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -129, y: 0)
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x696969))
+                        .offset(x: -100, y: 0)
                     
                     ZStack {
                         Rectangle()
-                            .foregroundColor(.clear)
                             .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                            .foregroundColor(Color(hex: 0xECECEC))
                             .cornerRadius(5)
                         
                         TextField("Enter Your Full Name", text: $fullname)
                             .offset(x: 65, y: 0)
                         
                     }
-                    
+                    .padding(.top, 10)
+
                     Text("Email ID")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -135, y: 0)
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x696969))
+                        .offset(x: -105, y: 0)
+                        .padding(.top, 15)
                     
                     ZStack {
                         Rectangle()
-                            .foregroundColor(.clear)
                             .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                            .foregroundColor(Color(hex: 0xECECEC))
                             .cornerRadius(5)
                         
                         TextField("Enter Your Email Address", text: $email)
@@ -98,24 +103,30 @@ struct EditProfileView: View {
                             .textInputAutocapitalization(.never)
                         
                     }
+                    .padding(.top, 10)
                     
                     Text("Phone Number")
                         .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -113, y: 0)
+                        .foregroundColor(Color(hex: 0x696969))
+                        .offset(x: -85, y: 0)
+                        .padding(.top, 15)
+
                     
                     ZStack {
                         Rectangle()
-                            .foregroundColor(.clear)
                             .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                            .foregroundColor(Color(hex: 0xECECEC))
                             .cornerRadius(5)
                         
                         TextField("Enter Your Phone Number", text: $phonenumber)
                             .offset(x: 65, y: 0)
                         
                     }
+                    .padding(.top, 10)
                     
+                    
+                   
+
                 };
                 
                 
@@ -125,7 +136,7 @@ struct EditProfileView: View {
                         do {
                             try await viewModel.updateUserInfo(fullname: fullname, email: email, phonenumber: phonenumber)
                             print("DEBUG: User Data Successfully Updated")
-                            navigateToHome = true
+                            navigateToProfile = true
                         } catch {
                             print("DEBUG: Update User Data Error")
                             errorMessage = error.localizedDescription
@@ -146,7 +157,7 @@ struct EditProfileView: View {
                 .opacity(formisValid ? 1.0 : 0.5)
                 .offset(x: 0, y: 40)
                 .background(
-                    NavigationLink(destination: ProfileView().navigationBarHidden(true), isActive: $navigateToHome) {
+                    NavigationLink(destination: ProfileView().navigationBarHidden(true), isActive: $navigateToProfile) {
                         EmptyView()
                     }
                     .hidden()

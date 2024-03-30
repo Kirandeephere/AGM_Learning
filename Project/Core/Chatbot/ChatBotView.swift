@@ -17,38 +17,41 @@ struct ChatBotView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            HStack {
-                //header
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.clear)
-                        .frame(width: 40, height: 40)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                    
-                    NavigationLink(
-                        destination: ChatHistoryView().navigationBarHidden(true),
-                        label: {
-                            Image(systemName: "chevron.backward")
-                                .font(Font.custom("Alatsi", size: 15))
-                                .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
-                        })
-                }.padding(.leading)
-                
-                Spacer()
-                
-                Text("Chatbot")
-                    .font(.title)
-                    .bold()
-                
-                Image("chatbot")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                Spacer()
-                
-            }
+                   HStack {
+                       //header
+                       ZStack {
+                           RoundedRectangle(cornerRadius: 10)
+                               .foregroundColor(.clear)
+                               .frame(width: 40, height: 40)
+                               .overlay(
+                                   RoundedRectangle(cornerRadius: 10)
+                                       .stroke(Color.black, lineWidth: 1)
+                               )
+                           
+                           NavigationLink(
+                               destination: ChatHistoryView().navigationBarHidden(true),
+                               label: {
+                                   Image(systemName: "chevron.backward")
+                                       .font(Font.custom("Alatsi-Regular", size: 15))
+                                        .foregroundColor(Color(hex: 0x14214C))
+                               })
+                       }.padding(.leading, 45)
+                       
+                       Spacer()
+                       
+                       Text("Chatbot")
+                           .font(Font.custom("Alatsi-Regular", size: 25))
+                           .foregroundColor(Color(hex: 0x14214C))
+                           .offset(x: -10)
+                       
+                       Image("chatbot")
+                           .resizable()
+                           .frame(width: 80, height: 80)
+                       
+                       Spacer()
+                       
+                   }
+                   .padding(.top, 20)
             
             if showScrollView {
                 ScrollView {
@@ -84,36 +87,41 @@ struct ChatBotView: View {
                 
             } else {
                 VStack(spacing: 25) {
-                    Spacer()
+                    
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 298, height: 68)
-                            .foregroundColor(Color.gray.opacity(0.1))
+                            .foregroundColor(Color(hex: 0xF7F7F7))
                         Text("Answer all your questions.\n(Just ask me anything you like)")
                             .font(.subheadline)
                             .foregroundColor(Color(hex: 0xA6A7A6))
                             .multilineTextAlignment(.center)
                     }
+                    
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 298, height: 68)
-                            .foregroundColor(Color.gray.opacity(0.1))
+                            .foregroundColor(Color(hex: 0xF7F7F7))
                         Text("Generate all the text you want\n(essay, article, report & more)")
                             .font(.subheadline)
                             .foregroundColor(Color(hex: 0xA6A7A6))
                             .multilineTextAlignment(.center)
                     }
+                    
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 298, height: 68)
-                            .foregroundColor(Color.gray.opacity(0.1))
+                            .foregroundColor(Color(hex: 0xF7F7F7))
                         Text("Conversational AI\n(I can talk to you like a human being)")
                             .font(.subheadline)
                             .foregroundColor(Color(hex: 0xA6A7A6))
                             .multilineTextAlignment(.center)
                     }
+                    
                     Spacer()
+
                 }
+                .offset(x:0 , y: 50)
             }
             
             // Contains the Message bar

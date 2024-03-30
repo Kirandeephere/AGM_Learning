@@ -118,6 +118,8 @@
 		348A37AD2BB65C3700DC102C /* LessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaStartView.swift; sourceTree = "<group>"; };
 		348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaLessonView.swift; sourceTree = "<group>"; };
+		34A03C382BB7A6AE00B989DC /* Alatsi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alatsi.ttf; sourceTree = "<group>"; };
+		34A03C392BB7A6E300B989DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalsView.swift; sourceTree = "<group>"; };
 		34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLevelView.swift; sourceTree = "<group>"; };
 		34D0E2912BB14A340081F083 /* PrepareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareView.swift; sourceTree = "<group>"; };
@@ -276,6 +278,8 @@
 				34D6E7C92BABC5670095A97B /* Model */,
 				34D6E7B92BABC3790095A97B /* Assets.xcassets */,
 				34D6E7DB2BABDDE40095A97B /* GoogleService-Info.plist */,
+				34A03C392BB7A6E300B989DC /* Info.plist */,
+				34A03C382BB7A6AE00B989DC /* Alatsi.ttf */,
 				34D6E7BB2BABC3790095A97B /* Project.entitlements */,
 				34D6E7BC2BABC3790095A97B /* Preview Content */,
 			);
@@ -729,10 +733,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
+				DEVELOPMENT_TEAM = 4893V28X2X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Project/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -748,7 +753,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -767,10 +772,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = 4ZNMBWVC3P;
+				DEVELOPMENT_TEAM = 4893V28X2X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Project/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -786,7 +792,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirandeep.Project;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gursewak.Project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

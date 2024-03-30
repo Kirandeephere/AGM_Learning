@@ -94,34 +94,34 @@ struct CardView: View {
                     VStack(alignment: .center) {
                         
                         Text("Subject: \(booking.subject)")
-                            .font(Font.custom("Alatsi", size: 15))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
                             .foregroundColor(.black)
                             .frame(width:250)
                             .multilineTextAlignment(.center)
                             .padding(.vertical, 3)
                         
                         Text("Volunteer: \(booking.volunteer)")
-                            .font(Font.custom("Alatsi", size: 15))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
                             .foregroundColor(.black)
                             .lineLimit(1)
                             .padding(.vertical, 3)
                         
                         Text("Duration: \(booking.duration)")
-                            .font(Font.custom("Alatsi", size: 15))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
                             .foregroundColor(.black)
                             .lineLimit(1)
                             .padding(.vertical, 3)
                         
                         HStack{
                             Text(formattedDate(from: booking.date))
-                                .font(Font.custom("Alatsi", size: 23))
+                                .font(Font.custom("Alatsi-Regular", size: 23))
                                 .foregroundColor(.black)
                                 .lineLimit(1)
                                 .padding(.trailing)
                 
                             
                             Text(booking.time)
-                                .font(Font.custom("Alatsi", size: 23))
+                                .font(Font.custom("Alatsi-Regular", size: 23))
                                 .foregroundColor(.black)
                                 .lineLimit(1)
                     
@@ -133,7 +133,7 @@ struct CardView: View {
 
                     if isToday(booking.date) { // Check if the booking's date is today
                         Text("Today")
-                            .font(Font.custom("Alatsi", size: 14))
+                            .font(Font.custom("Alatsi-Regular", size: 14))
                             .foregroundColor(.white)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
@@ -181,7 +181,7 @@ struct MyBookingView: View {
                 VStack(alignment: .center){
                     
                     Text("My Bookings")
-                        .font(Font.custom("Alatsi", size: 25))
+                        .font(Font.custom("Alatsi-Regular", size: 25))
                         .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                         
                 }.padding()

@@ -29,16 +29,16 @@ struct ChooseLevelView: View {
                 
                 //Title
                 Text("What's your level?")
-                     .font(Font.custom("Circular Std", size: 30).weight(.bold))
+                    .font(Font.custom("Alatsi-Regular", size: 30))
                      .lineSpacing(34)
-                     .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
+                     .foregroundColor(Color(hex: 0x686C80))
                      .offset(x: 0, y: -40)
 
                 
                 Text("Choose your current level. We will \nsuggest the best lessons for you")
-                      .font(Font.custom("Rubik", size: 14))
+                    .font(Font.custom("Alatsi-Regular", size: 14))
                       .lineSpacing(8)
-                      .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
+                      .foregroundColor(Color(hex: 0x686C80))
                       .multilineTextAlignment(.center)
             
             
@@ -72,7 +72,7 @@ struct ChooseLevelView: View {
                     .frame(width: 319, height: 60)
                     .background(
                         RoundedRectangle(cornerRadius: 52)
-                            .fill(Color(red: 0.6627451, green: 0.1254902, blue: 0.15686275))
+                            .fill(Color(hex: 0xA92028))
                     )
             }
             .padding(.top, 20)
@@ -107,7 +107,7 @@ struct LevelSelectionRow: View {
             HStack {
                 
                 Circle()
-                    .foregroundColor(isSelected ? .green : Color(red: 0.77, green: 0.78, blue: 0.85))
+                    .foregroundColor(isSelected ? .green : Color(hex: 0xC5C8D8))
                     .frame(width: 39)
                     .aspectRatio(1, contentMode: .fit)
                     .offset(x: 40, y: 0)
@@ -117,16 +117,16 @@ struct LevelSelectionRow: View {
 
                 
                 Text(level)
-                    .font(Font.custom("Circular Std", size: 20).weight(.medium))
+                    .font(Font.custom("Alatsi-Regular", size: 20))
                     .lineSpacing(34)
-                    .foregroundColor(isSelected ? .green : Color(red: 0.41, green: 0.42, blue: 0.50))
+                    .foregroundColor(isSelected ? .green : Color(hex: 0x686C80))
                     .padding(.leading, 10)
 
                 Spacer()
 
             }
             .frame(width: 325, height: 67)
-            .background(Color(red: 0.93, green: 0.94, blue: 0.97))
+            .background(Color(hex: 0xEEF0F7))
             .cornerRadius(10)
             .padding(.top, 10)
         }

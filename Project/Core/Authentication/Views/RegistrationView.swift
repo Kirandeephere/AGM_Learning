@@ -36,19 +36,19 @@ struct RegistrationView: View {
                                 destination: LoginView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
-                                        .font(Font.custom("Alatsi", size: 15))
-                                        .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                                        .font(Font.custom("Alatsi-Regular", size: 15))
+                                        .foregroundColor(Color(hex: 0x14214C))
                                 })
                         }
                         .offset(x: -45, y: 0)
                         
                         Text("Sign Up")
-                            .font(Font.custom("Alatsi", size: 25))
-                            .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
+                            .font(Font.custom("Alatsi-Regular", size: 25))
+                            .foregroundColor(Color(hex: 0x14214C))
                             .offset(x: -20, y: 0)
                         
                     }
-                    .offset(x: -50, y: -30)
+                    .offset(x: -50, y: 0)
                     
                     
                     //Image
@@ -57,96 +57,104 @@ struct RegistrationView: View {
                             .resizable()
                             .frame(width: 130, height: 130)
                         
-                    }.padding(.bottom, 30)
+                    }
                 };
                 
                 Group{
                     Text("Full Name")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -129, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        TextField("Enter Your Full Name", text: $fullname)
-                            .offset(x: 65, y: 0)
-                        
-                    }
-                    
-                    Text("Email Address")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -115, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        TextField("Enter Your Email Address", text: $email)
-                            .offset(x: 65, y: 0)
-                            .textInputAutocapitalization(.never)
-                        
-                    }
-                    
-                    Text("Phone Number")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -113, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        TextField("Enter Your Phone Number", text: $phonenumber)
-                            .offset(x: 65, y: 0)
-                        
-                        
-                    }
-                    
-                    Text("Password")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
-                        .offset(x: -130, y: 0)
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
-                        
-                        SecureField("Enter Your Password", text: $password)
-                            .offset(x: 65, y: 0)
-                        
-                    }
-                    
-                    Text("Confirm Password")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
                         .offset(x: -100, y: 0)
                     
                     ZStack {
                         Rectangle()
-                            .foregroundColor(.clear)
                             .frame(width: 307, height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
+                        
+                        TextField("Enter Your Full Name", text: $fullname)
+                            .offset(x: 65, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
+                    }
+                    .padding(.bottom, 15)
+
+                    
+                    Text("Email Address")
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
+                        .offset(x: -85, y: 0)
+                    
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
+                        
+                        TextField("Enter Your Email Address", text: $email)
+                            .foregroundColor(Color(hex: 0x808080))
+                            .offset(x: 65, y: 0)
+                            .textInputAutocapitalization(.never)
+                        
+                    }
+                    .padding(.bottom, 15)
+
+                    
+                    Text("Phone Number")
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
+                        .offset(x: -85, y: 0)
+                    
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
+                        
+                        TextField("Enter Your Phone Number", text: $phonenumber)
+                            .offset(x: 65, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
+                    }
+                    .padding(.bottom, 15)
+
+                    
+                    Text("Password")
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
+                        .offset(x: -100, y: 0)
+                    
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
+                        
+                        SecureField("Enter Your Password", text: $password)
+                            .offset(x: 65, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
+                    }
+                    .padding(.bottom, 15)
+                    
+                    Text("Confirm Password")
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
+                        .offset(x: -75, y: 0)
+                    
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
                             .cornerRadius(5)
                         
                         SecureField("Enter Your Password Again", text: $confrimpassword)
                             .offset(x: 65, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
                         
                     }
+                    .padding(.bottom, 15)
+
                 };
                 
                
@@ -157,12 +165,11 @@ struct RegistrationView: View {
                     }
                 }label: {
                     Text("Sign Up")
-                        .font(Font.custom("Alatsi", size: 18))
+                        .font(Font.custom("Alatsi-Regular", size: 18))
                         .foregroundColor(.white)
-                    
-                }.foregroundColor(.clear)
+                    }
                     .frame(width: 228, height: 38)
-                    .background(Color(red: 0.66, green: 0.13, blue: 0.16))
+                    .background(Color(hex: 0xA92028))
                     .disabled(!formisValid)
                     .opacity(formisValid ? 1.0 : 0.5)
                     .cornerRadius(5)
@@ -172,16 +179,16 @@ struct RegistrationView: View {
                 HStack{
                     
                     Text("Already have an account?")
-                        .font(Font.custom("Alatsi", size: 15))
-                        .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                        .font(Font.custom("Alatsi-Regular", size: 15))
+                        .foregroundColor(Color(hex: 0x737373))
                     
                     NavigationLink(
                         destination: LoginView().navigationBarHidden(true),
                         label: {
                             Text("Sign In")
                                 .font(Font.custom("Alatsi", size: 15))
-                                .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
-                            
+                                .foregroundColor(Color(hex: 0x000000))
+
                         })
                     
                 }.offset(x: 0, y: 40)

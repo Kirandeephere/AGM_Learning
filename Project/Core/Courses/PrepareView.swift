@@ -27,9 +27,9 @@ struct PrepareView: View {
                 // Header
                 HStack {
                     Text("Preparing your\nSuuuper Course!")
-                        .font(Font.custom("Circular Std", size: 30).weight(.medium))
+                        .font(Font.custom("Alatsi-Regular", size: 30))                        
                         .lineSpacing(14)
-                        .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
+                        .foregroundColor(Color(hex: 0x686C80))
                 }
                 .offset(x: 0, y: 250)
 
@@ -38,11 +38,11 @@ struct PrepareView: View {
                 // Loading Bar
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color(red: 0.9333333373069763, green: 0.9411764740943909, blue: 0.9686274528503418))
+                        .fill(Color(hex: 0xEEF0F7))
                         .frame(width: totalWidth, height: 12)
 
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.blue)
+                        .fill(Color(hex: 0xA92028))
                         .frame(width: progress * totalWidth, height: 12)
                         .animation(.linear(duration: animationDuration)) // Set animation duration
                 }

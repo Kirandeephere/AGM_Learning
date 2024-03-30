@@ -21,6 +21,8 @@ struct NewPasswordView: View {
         var body: some View {
             NavigationView {
                 VStack(spacing: 40) {
+                    
+                    
                     HStack {
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
@@ -35,59 +37,88 @@ struct NewPasswordView: View {
                                 destination: ProfileView().navigationBarHidden(true),
                                 label: {
                                     Image(systemName: "chevron.backward")
-                                        .font(Font.custom("Alatsi", size: 15))
-                                        .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                                        .font(Font.custom("Alatsi-Regular", size: 15))
+                                        .foregroundColor(Color(hex: 0x14214C))
                                 })
                         }.padding(.leading, -45)
                         
                         
                         
                         Text("Change Password")
-                            .font(Font.custom("Alatsi", size: 25))
-                            .foregroundColor(Color(red: 0.078, green: 0.13, blue: 0.30))
+                            .font(Font.custom("Alatsi-Regular", size: 25))
+                            .foregroundColor(Color(hex: 0x14214C))
                             .padding(.leading)
                             
                     }
+                    .padding(.bottom, 50)
+
                     
                     Image("restPass")
                         .resizable()
                         .frame(width: 130, height: 130)
-                        .padding(.bottom, 40)
+                        .offset(x:0, y: -50)
                     
-                    VStack(alignment: .leading, spacing: 0) {
+                   
+                    
+                    ZStack {
                         Text("Current Password")
-                            .font(Font.custom("Alatsi", size: 15))
-                            .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
+                            .foregroundColor(Color(hex: 0x737373))
+                            .offset(x: -75, y: -40)
+                        
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
                         
                         SecureField("Enter Your Current Password", text: $currentPassword)
-                            .frame(height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
+                            .offset(x: 55, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
                     }
+                    .padding(.bottom, 15)
                     
-                    VStack(alignment: .leading, spacing: 0) {
+                
+                    
+                    ZStack {
                         Text("New Password")
-                            .font(Font.custom("Alatsi", size: 15))
-                            .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
+                            .foregroundColor(Color(hex: 0x737373))
+                            .offset(x: -75, y: -40)
+                        
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
                         
                         SecureField("Enter Your New Password", text: $newPassword)
-                            .frame(height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
+                            .offset(x: 55, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
                     }
+                    .padding(.bottom, 15)
                     
-                    VStack(alignment: .leading, spacing: 0) {
+                    
+                    ZStack {
                         Text("Confirm New Password")
-                            .font(Font.custom("Alatsi", size: 15))
-                            .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.45))
+                            .font(Font.custom("Alatsi-Regular", size: 15))
+                            .foregroundColor(Color(hex: 0x737373))
+                            .offset(x: -45, y: -40)
+                        
+                        Rectangle()
+                            .frame(width: 307, height: 38)
+                            .foregroundColor(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
                         
                         SecureField("Enter Your Password Again", text: $confirmPassword)
-                            .frame(height: 38)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(5)
+                            .offset(x: 55, y: 0)
+                            .foregroundColor(Color(hex: 0x808080))
+                        
                     }
+                    .padding(.bottom, 15)
                     
-                    
+      
+                   
                     //Submit Button
                     Button("Submit") {
                         Task {
@@ -117,18 +148,15 @@ struct NewPasswordView: View {
                             }
                         }
                     }
-                    .font(Font.custom("Alatsi", size: 18))
+                    .font(Font.custom("Alatsi-Regular", size: 18))
+                    .frame(width: 228, height: 38)
                     .foregroundColor(.white)
-                    .padding()
                     .disabled(!formisValid)
                     .opacity(formisValid ? 1.0 : 0.5)
-                    .background(Color(red: 0.66, green: 0.13, blue: 0.16))
+                    .background(Color(hex: 0xA92028))
                     .cornerRadius(5)
                     
-                  
-
-                    
-                    // Replace the Group with an alert view
+                    // Alert view
                     .alert(isPresented: $showAlert) {
                         Alert(
                             title: Text(alertMessage),
@@ -144,10 +172,6 @@ struct NewPasswordView: View {
         }
     }
 
-enum VolunteerError: Error {
-    case wrongCurrentPassword
-    // Add other cases as needed
-}
 
 //MARK- FORM VALIDATION
 extension NewPasswordView: AuthenticationFormProtocol{

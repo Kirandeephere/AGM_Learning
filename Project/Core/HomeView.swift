@@ -35,13 +35,13 @@ struct HomeView: View {
                             
                             VStack(alignment: .leading){
                                 Text("Hello,")
-                                    .font(Font.custom("Alatsi", size: 20))
+                                    .font(Font.custom("Alatsi-Regular", size: 20))
                                     .fontWeight(.heavy)
                                     .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                                     
                                 
                                 Text(user.fullname)
-                                    .font(Font.custom("Alatsi", size: 20))
+                                    .font(Font.custom("Alatsi-Regular", size: 20))
                                     .fontWeight(.black)
                                     .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                             }
@@ -53,11 +53,11 @@ struct HomeView: View {
                         
                         HStack(spacing: 5.0){
                             Text("中")
-                                .font(Font.custom("Alatsi", size: 20))
+                                .font(Font.custom("Alatsi-Regular", size: 20))
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                             Text("|")
-                                .font(Font.custom("Alatsi", size: 20))
+                                .font(Font.custom("Alatsi-Regular", size: 20))
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
                             Text("Eng")
