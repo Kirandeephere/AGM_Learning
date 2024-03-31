@@ -14,7 +14,6 @@ struct LoginView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        NavigationView {
             VStack {
                 Image("splashlogo")
                     .resizable()
@@ -113,12 +112,11 @@ struct LoginView: View {
                 }.offset(x: 0, y: 100)
                 
             }
-        }
     }
 }
     
 
-//MARK- FORM VALIDATION 
+//MARK- FORM VALIDATION
 extension LoginView: AuthenticationFormProtocol{
     var formisValid: Bool {
         return !email.isEmpty

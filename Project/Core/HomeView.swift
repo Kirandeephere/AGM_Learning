@@ -92,7 +92,6 @@ struct HomeView: View {
                     .padding(.bottom)
                     
                     // Upcomingschedule Cards
-                    // Upcomingschedule Cards
                     VStack(alignment: .center) {
                         Text("Upcoming Appointments")
                             .font(Font.custom("Alatsi", size: 20))
@@ -130,8 +129,7 @@ struct HomeView: View {
                         HStack {
                             
                             NavigationLink {
-                                // ChooseLanguageView().navigationBarHidden(true);
-                                WritingBaseView()
+                                ChooseLanguageView().navigationBarHidden(true);
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)
@@ -180,7 +178,7 @@ struct HomeView: View {
                         HStack {
                             
                             NavigationLink {
-                                ChatHistoryView().navigationBarHidden(true);
+                                ChatBotView().navigationBarHidden(true);
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)

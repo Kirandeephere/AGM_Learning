@@ -16,7 +16,6 @@ struct ForgetPasswordView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        NavigationView{
             VStack{
                 
                 //Header Starts
@@ -140,7 +139,6 @@ struct ForgetPasswordView: View {
                     
                 }
             }
-        }
         
     }
 }

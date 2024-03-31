@@ -16,18 +16,11 @@ struct PrepareView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Back Button Arrow
-//                NavigationLink(destination: EmptyView()) {
-//                    Image("backarrow")
-//                        .font(.title)
-//                        .foregroundColor(.blue)
-//                }
-//                .offset(x: -140, y: 50)
 
                 // Header
                 HStack {
                     Text("Preparing your\nSuuuper Course!")
-                        .font(Font.custom("Alatsi-Regular", size: 30))                        
+                        .font(Font.custom("Alatsi-Regular", size: 30))
                         .lineSpacing(14)
                         .foregroundColor(Color(hex: 0x686C80))
                 }
@@ -61,7 +54,7 @@ struct PrepareView: View {
             .background(
                 NavigationLink(
                     destination: UnlockView().navigationBarHidden(true),
-                    isActive: $navigateToUnlockView) 
+                    isActive: $navigateToUnlockView)
                 {
                     EmptyView()
                 }

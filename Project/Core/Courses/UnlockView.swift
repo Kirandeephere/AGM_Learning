@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct UnlockView: View {
+    @State private var isHiraganaStartViewActive = false
+    
     var body: some View {
-        NavigationView {
             
             //Headers - Title, Back Button
             VStack() {
                 
                 //Back Button Arrow
                 NavigationLink(destination: HomeView().navigationBarHidden(true)) {
-                    Image("cross")
-                        .font(.title)
-                        .foregroundColor(.blue)
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width:20, height: 20)
+                        .font(.title.bold())
+                        .foregroundColor(.black)
+                        
                 }
                 .offset(x: -140, y: -50)
                 
@@ -50,12 +54,12 @@ struct UnlockView: View {
                 }
                 .frame(width: 262, height: 240)
                 
-                
-                
                 //Try Button
                 Button(action: {
                     // Button action
                     print("DEBUG: Try Button Clicked")
+                    
+                    isHiraganaStartViewActive = true
                 }) {
                     Text("Try it free")
                         .font(Font.custom("Alatsi-Regular", size: 20))
@@ -67,6 +71,16 @@ struct UnlockView: View {
                         )
                 }
                 .padding(.top, 20)
+                .background(
+                // Navigate to ChooseLevelView on clicked button
+                        NavigationLink(
+                                destination: HiraganaStartView().navigationBarHidden(true),
+                                isActive: $isHiraganaStartViewActive,
+                                label: {
+                                            EmptyView()
+                                        }
+                                    )
+                            )
                 
                 
                 //Normal Text
@@ -86,7 +100,6 @@ struct UnlockView: View {
 
             
             }
-        }
     }
 }
 

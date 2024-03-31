@@ -13,34 +13,37 @@ struct ChooseLevelView: View {
 
 
     var body: some View {
-        NavigationView {
-            
+        
             //Headers - Title, Back Button
             VStack() {
                 
-                //Back Button Arrow
-                NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true)) {
-                    Image("backarrow")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                }
-                .offset(x: -140, y: -50)
+                HStack{
+                    //Back Button Arrow
+                    NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true)) {
+                        Image("backarrow")
+                            .font(.title)
+                            .foregroundColor(.blue)
+                    }
+                    Spacer()
+                }.padding(.leading, 20)
                 
                 
-                //Title
-                Text("What's your level?")
-                    .font(Font.custom("Alatsi-Regular", size: 30))
-                     .lineSpacing(34)
-                     .foregroundColor(Color(hex: 0x686C80))
-                     .offset(x: 0, y: -40)
-
                 
-                Text("Choose your current level. We will \nsuggest the best lessons for you")
-                    .font(Font.custom("Alatsi-Regular", size: 14))
-                      .lineSpacing(8)
-                      .foregroundColor(Color(hex: 0x686C80))
-                      .multilineTextAlignment(.center)
-            
+                VStack(spacing: 15){
+                    //Title
+                    Text("What's your level?")
+                        .font(Font.custom("Alatsi-Regular", size: 30))
+                        .lineSpacing(34)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        
+                    
+                    
+                    Text("Choose your current level. We will \nsuggest the best lessons for you")
+                        .font(Font.custom("Alatsi-Regular", size: 14))
+                        .lineSpacing(8)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        .multilineTextAlignment(.center)
+                }.padding(.top)
             
             //Level Box Selection
             LevelSelectionRow(level: "I'm just starting", isSelected: selectedLevel == "I'm just starting") {
@@ -66,7 +69,7 @@ struct ChooseLevelView: View {
                 // Set the state variable to activate ChooseLevelView
                 isChooseLevelViewActive = true
             }) {
-                Text("I don't know")
+                Text("Continue")
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 319, height: 60)
@@ -90,8 +93,6 @@ struct ChooseLevelView: View {
             
             }
             .padding(.horizontal, 20)
-                
-        }
         
     }
 }
@@ -107,7 +108,7 @@ struct LevelSelectionRow: View {
             HStack {
                 
                 Circle()
-                    .foregroundColor(isSelected ? .green : Color(hex: 0xC5C8D8))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0xC5C8D8))
                     .frame(width: 39)
                     .aspectRatio(1, contentMode: .fit)
                     .offset(x: 40, y: 0)
@@ -119,14 +120,14 @@ struct LevelSelectionRow: View {
                 Text(level)
                     .font(Font.custom("Alatsi-Regular", size: 20))
                     .lineSpacing(34)
-                    .foregroundColor(isSelected ? .green : Color(hex: 0x686C80))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0x686C80))
                     .padding(.leading, 10)
 
                 Spacer()
 
             }
             .frame(width: 325, height: 67)
-            .background(Color(hex: 0xEEF0F7))
+            .background(Color(red: 0.93, green: 0.94, blue: 0.97))
             .cornerRadius(10)
             .padding(.top, 10)
         }

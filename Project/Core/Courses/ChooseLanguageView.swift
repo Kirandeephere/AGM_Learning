@@ -12,56 +12,72 @@ struct ChooseLanguageView: View {
     @State private var selectedLanguage: String = ""
     
     @State private var IfLanguageSelected = false
-
+    
     var body: some View {
-        NavigationView {
-            //Headers - Title, Subtitle
-            VStack() {
-                Text("Choose a language")
-                    .font(Font.custom("Alatsi-Regular", size: 30))
-                    .lineSpacing(34)
-                    .offset(x: 0, y: -60)
-                    .foregroundColor(Color(hex: 0x686C80))
+        NavigationView{
+            VStack{
                 
+                HStack{
+                    //Back Button Arrow
+                    NavigationLink(destination: HomeView().navigationBarHidden(true)) {
+                        Image("backarrow")
+                            .font(.title)
+                        
+                    }
+                    Spacer()
+                }.padding(.leading, 20)
                 
-                Text("What language would you like to start with? \nYou can change it at any time!")
-                    .font(Font.custom("Alatsi-Regular", size: 14))
-                    .lineSpacing(8)
-                    .foregroundColor(Color(hex: 0x686C80))
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 20)
-                
-                
-            //If a language is selected then goes to NewView. 
-                NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true), isActive: $IfLanguageSelected) {
-                                    EmptyView()
+                //Headers - Title, Subtitle
+                VStack(spacing: 10){
+                    Text("Choose a language")
+                        .font(Font.custom("Alatsi-Regular", size: 30))
+                        .lineSpacing(34)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        .padding(.top)
+                    
+                    
+                    
+                    Text("What language would you like to start with? \nYou can change it at any time!")
+                        .font(Font.custom("Alatsi-Regular", size: 14))
+                        .lineSpacing(8)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 20)
+                    
+                    
+                    //If a language is selected then goes to NewView.
+                    NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true), isActive: $IfLanguageSelected) {
+                        EmptyView()
+                    }
+                    
+                    
+                    //Languages Box Selection
+                    LanguageSelectionRow(language: "Japanese", isSelected: selectedLanguage == "Japanese") {
+                        selectedLanguage = "Japanese"
+                        IfLanguageSelected = true
+                        
+                    }
+                    LanguageSelectionRow(language: "English", isSelected: selectedLanguage == "English") {
+                        selectedLanguage = "English"
+                        IfLanguageSelected = true
+                        
+                    }
+                    LanguageSelectionRow(language: "Portuguese", isSelected: selectedLanguage == "Portuguese") {
+                        selectedLanguage = "Portuguese"
+                        IfLanguageSelected = true
+                        
+                    }
                 }
-
+                .padding(.top)
+                .padding(.horizontal, 20)
                 
-                //Languages Box Selection
-                LanguageSelectionRow(language: "Japanese", isSelected: selectedLanguage == "Japanese") {
-                    selectedLanguage = "Japanese"
-                    IfLanguageSelected = true
-
-                }
-                LanguageSelectionRow(language: "English", isSelected: selectedLanguage == "English") {
-                    selectedLanguage = "English"
-                    IfLanguageSelected = true
-
-                }
-                LanguageSelectionRow(language: "Portuguese", isSelected: selectedLanguage == "Portuguese") {
-                    selectedLanguage = "Portuguese"
-                    IfLanguageSelected = true
-
-                }
-            }
-            .padding(.horizontal, 20)
-            
+                Spacer()
+                
+            }.padding(.top)
         }
+        
     }
-
 }
-
 //Selection Function
 struct LanguageSelectionRow: View {
     let language: String
@@ -73,7 +89,7 @@ struct LanguageSelectionRow: View {
             HStack {
                 
                 Circle()
-                    .foregroundColor(isSelected ? .green : Color(hex: 0xC5C8D8))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0xC5C8D8))
                     .frame(width: 39)
                     .aspectRatio(1, contentMode: .fit)
                     .offset(x: 40, y: 0)
@@ -86,7 +102,7 @@ struct LanguageSelectionRow: View {
                 Text(language)
                     .font(Font.custom("Alatsi-Regular", size: 20))
                     .lineSpacing(34)
-                    .foregroundColor(isSelected ? .green : Color(hex: 0x686C80))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0x686C80))
                     .padding(.leading, 10)
 
                 Spacer()

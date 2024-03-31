@@ -13,7 +13,7 @@ struct VolunteerDetailView: View {
     var body: some View {
         VStack(alignment: .center) {
             // Header
-            HStack {
+            HStack{
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.clear)
@@ -97,14 +97,16 @@ struct VolunteerDetailView: View {
             Spacer()
             
             // Book Button
-            NavigationLink(destination: BookingView(name: volunteer.Name, subject: volunteer.Major)) {
-                Text("Book")
-                    .font(Font.custom("Alatsi", size: 20))
+            NavigationLink(destination: BookingView(name: volunteer.Name, subject: volunteer.Major).navigationBarBackButtonHidden(true)){
+                Text("Book Session")
+                    .font(Font.custom("Alatsi-Regular", size: 20))
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+                    .frame(width: 319, height: 60)
+                    .background(
+                        RoundedRectangle(cornerRadius: 52)
+                            .fill(Color(hex: 0xA92028))
+                    )            }
 
         }
         .padding()
@@ -115,10 +117,8 @@ struct VolunteerDetailView: View {
 
 struct VolunteerDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
             VolunteerDetailView(volunteer: dummyVolunteer())
             //Instead of dummyVolunteer() use Volunteer() for actual use case
-        }
     }
 
     //Added Dummy data for testing only.

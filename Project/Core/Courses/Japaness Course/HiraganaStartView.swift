@@ -8,153 +8,188 @@
 import SwiftUI
 
 struct HiraganaStartView: View {
+    @State private var StartFirstLetters = false
     var body: some View {
-        
-        ZStack(){
-            // Background color for testing area section
-            //Color(.green)
-            
-            //Gray Square
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 43, height: 36)
-              .background(Color(red: 0.93, green: 0.94, blue: 0.97))
-              .cornerRadius(4)
-              .offset(x: -150, y: 0)
-        }
-        .frame(width: 353, height: 50)
-        .padding(.top, 30)
-        .padding(.bottom, 30)
-        
-        //Scorable Middle Section
-        ScrollView {
-            ZStack() {
-                // Background color for testing area section
-                //Color(.lightGray)
-                
-                //Hiragana Big Box Area
-                Group {
-                    //Background Square
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 353, height: 158)
-                        .background(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .cornerRadius(7)
-                        .padding(.horizontal, 20)
-                        .offset(x: 0, y: -167.50)
-                    
-                    //Title
-                    Text("Hiragana")
-                        .font(Font.custom("Circular Std", size: 20).weight(.bold))
-                        .lineSpacing(34)
-                        .offset(x: -115.50, y: -213)
-                    
-                    //Subtitle
-                    Text("For Starters")
-                        .font(Font.custom("Rubik", size: 14))
-                        .lineSpacing(24)
-                        .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
-                        .offset(x: -118.50, y: -183)
-                    
-                    
-                    //Text
-                    Text("Learn the basics of the language: make new friends, plan \na family dinner, go shopping and much more!")
-                        .font(Font.custom("Rubik", size: 12))
-                        .lineSpacing(12)
-                        .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
-                        .offset(x: 5, y: -137)
-                        .padding(.horizontal, 20)
-                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack{
+                //Back Button
+                HStack{
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.clear)
+                            .frame(width: 40, height: 40)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                        
+                        NavigationLink(
+                            destination: HomeView().navigationBarHidden(true),
+                            label: {
+                                Image(systemName: "chevron.backward")
+                                    .font(Font.custom("Alatsi", size: 15))
+                                    .foregroundColor(Color(red: 0.08, green: 0.13, blue: 0.30))
+                            })
+                        
+                    }.padding(.top, 30).padding(.bottom, 30)
+                    Spacer()
                 }
+                .padding(.leading, 25)
                 
-                
-                // Circles and Text Area
-                Group {
-                    //Circles Column
-                    Circle()
-                        .frame(width: 65, height: 65)
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .cornerRadius(65/2)
-                        .offset(x: -144, y: -13.50)
+                // Middle Section
+                ZStack() {
                     
-                    Circle()
-                        .frame(width: 65, height: 65)
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .cornerRadius(65/2)
-                        .offset(x: -144, y: 101.50)
+                    //Info Box
+                    Group {
+                        //Background Square
+                        Rectangle()
+                            .foregroundColor(Color(hex: 0xfccccf))
+                            .frame(width: 353, height: 158)
+                            .cornerRadius(7)
+                            .padding(.horizontal, 20)
+                            .offset(x: 0, y: -167.50)
+                        
+                        //Title
+                        Text("Hiragana")
+                            .font(.title2.bold())
+                            .foregroundColor(Color(hex: 0x430c0f))
+                            .lineSpacing(34)
+                            .padding(.horizontal, 10)
+                            .offset(x: -115.50, y: -213)
+                        
+                        //Subtitle
+                        Text("For Starters")
+                            .font(.subheadline.bold())
+                            .lineSpacing(24)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .padding(.horizontal, 10)
+                            .offset(x: -118.50, y: -183)
+                        
+                        
+                        //Text
+                        Text("Learn the basics of the language: make new friends,\n plan family dinner, go shopping and much more!")
+                            .font(.footnote)
+                            .lineSpacing(12)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .padding(.horizontal, 10)
+                            .offset(x: 5, y: -137)
+                            .multilineTextAlignment(.leading)
+                    }
                     
-                    Circle()
-                        .frame(width: 65, height: 65)
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .cornerRadius(65/2)
-                        .offset(x: -144, y: 213.50)
-                    
-                    //Top
-                    Rectangle()
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .frame(width: 13, height: 65)
-                        .offset(x: -144, y: -60)
-                    
-                    //Middle
-                    
-                    Rectangle()
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .frame(width: 13, height: 65)
-                        .offset(x: -144, y: 46)
-                    
-                    
-                    //Last
-                    Rectangle()
-                        .foregroundColor(Color(red: 0.93, green: 0.94, blue: 0.97))
-                        .frame(width: 13, height: 65)
-                        .offset(x: -144, y: 157)
-                    
-                    
-                    
-                    
-                    
-                    Text("Firts Letters")
-                        .font(Font.custom("Circular Std", size: 16).weight(.bold))
-                        .lineSpacing(34)
-                        .offset(x: -50, y: -36)
-                    
-                    Text("Firts Phrase")
-                        .font(Font.custom("Circular Std", size: 16).weight(.bold))
-                        .lineSpacing(34)
-                        .offset(x: -51, y: 87)
-                    
-                    Text("Family Dialogue")
-                        .font(Font.custom("Circular Std", size: 16).weight(.bold))
-                        .lineSpacing(34)
-                        .offset(x: -34, y: 200)
-                    
-                    
-                    
-                    Text("Introducing yourself: greetings, \nname and age")
-                        .font(Font.custom("Rubik", size: 12))
-                        .lineSpacing(12)
-                        .offset(x: 0, y: 11.50)
-                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                    
-                    Text("Planning where to go with your friends")
-                        .font(Font.custom("Rubik", size: 12))
-                        .lineSpacing(12)
-                        .offset(x: 20.50, y: 122)
-                    
-                    Text("talk about it your job and future plans")
-                        .font(Font.custom("Rubik", size: 12))
-                        .lineSpacing(12)
-                        .offset(x: 20.50, y: 234)
-                    
-                    
+                    // Circles and Text Area
+                    Group {
+                        //Top
+                        Rectangle()
+                            .foregroundColor(Color(hex: 0xfccccf))
+                            .frame(width: 13, height: 65)
+                            .offset(x: -144, y: -60)
+                        
+                        //Middle
+                        
+                        Rectangle()
+                            .foregroundColor(Color(hex: 0xfef2f3))
+                            .frame(width: 13, height: 65)
+                            .offset(x: -144, y: 46)
+                        
+                        
+                        //Last
+                        Rectangle()
+                            .foregroundColor(Color(hex: 0xfef2f3))
+                            .frame(width: 13, height: 65)
+                            .offset(x: -144, y: 157)
+                        
+                        //Circles Column
+                        Circle()
+                            .frame(width: 65, height: 65)
+                            .foregroundColor(Color(hex: 0xfccccf))
+                            .cornerRadius(65/2)
+                            .offset(x: -144, y: -13.50)
+                        
+                        Circle()
+                            .frame(width: 65, height: 65)
+                            .foregroundColor(Color(hex: 0xfef2f3))
+                            .cornerRadius(65/2)
+                            .offset(x: -144, y: 101.50)
+                        
+                        Circle()
+                            .frame(width: 65, height: 65)
+                            .foregroundColor(Color(hex: 0xfef2f3))
+                            .cornerRadius(65/2)
+                            .offset(x: -144, y: 213.50)
+                        
+                        
+                        
+                        Text("First Letters")
+                            .font(.headline.bold())
+                            .lineSpacing(18)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: -50, y: -26)
+                        
+                        Text("First Phrase")
+                            .font(.headline.bold())
+                            .lineSpacing(18)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: -51, y: 90)
+                        
+                        Text("Family Dialogue")
+                            .font(.headline.bold())
+                            .lineSpacing(18)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: -34, y: 200)
+                        
+                        
+                        Text("Introducing yourself: \n greetings, name and age")
+                            .font(.subheadline)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: 0, y: 10)
+                            .multilineTextAlignment(.leading)
+                        
+                        Text("Planning where to go with your \n friends")
+                            .font(.subheadline)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: 20.50, y: 122)
+                        
+                        Text("Talk about it your job and future \n plans")
+                            .font(.subheadline)
+                            .foregroundColor(Color(hex: 0x7b2126))
+                            .offset(x: 24, y: 234)
+                        
+                        
+                    }
                 }
+                .frame(width: 353, height: 493)
+                
+                Button(action: {
+                    // Button action
+                    print("DEBUG: Start Learning Button Clicked")
+                    
+                    StartFirstLetters = true
+                }) {
+                    Text("Start Learning")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 68.69)
+                        .background(
+                            RoundedRectangle(cornerRadius: 52)
+                                .foregroundColor(Color(hex: 0xa92028))
+                        )
+                }
+                .padding(.top, 30)
+                .background(
+                    NavigationLink(
+                        destination: HiraganaLessonView().navigationBarHidden(true),
+                        isActive: $StartFirstLetters,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                )
+                
+                Spacer()
             }
-            .frame(width: 353, height: 493)
-            
-            Spacer()
+        }
         }
     }
-}
 
 #Preview {
     HiraganaStartView()

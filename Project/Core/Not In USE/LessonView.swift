@@ -26,7 +26,7 @@ struct LessonView: View {
                 
                 //Headers - Title, Subtitle
                 Text("Start Lesson 1")
-                    .font(Font.custom("Alatsi-Regular", size: 30))
+                     .font(Font.custom("Circular Std", size: 30).weight(.bold))
                      .lineSpacing(34)
                      .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
                      .offset(x: 0, y: -60)
@@ -39,7 +39,7 @@ struct LessonView: View {
                 
                 //Text
                 Text("Have you learn your \nfirst letters")
-                    .font(Font.custom("Alatsi-Regular", size: 14))
+                      .font(Font.custom("Rubik", size: 14))
                       .lineSpacing(8)
                       .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
                       .multilineTextAlignment(.center)
@@ -57,8 +57,8 @@ struct LessonView: View {
                     
                     
                       TextField("Enter Task", text: $taskInput)
-                                .font(Font.custom("Alatsi-Regular", size: 20))
-                                .foregroundColor(Color(hex: 0x686C80))
+                                .font(Font.custom("Circular Std", size: 20).weight(.medium))
+                                .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
                                 .padding(.horizontal, 20)
                                 .frame(width: 323.92, height: 65.94)
                     .background(
@@ -67,15 +67,15 @@ struct LessonView: View {
                                 .overlay(
                                 RoundedRectangle(cornerRadius: 33)
                                  .inset(by: 1)
-                                 .stroke(Color(hex: 0xDEE3F4), lineWidth: 1)
+                                 .stroke(Color(red: 0.87, green: 0.89, blue: 0.96), lineWidth: 1)
                                     )
                         )
                          .offset(x: 0, y: 9.23)
                     
                     Text("Your Goal")
-                        .font(Font.custom("Alatsi-Regular", size: 12))
+                      .font(Font.custom("Rubik", size: 12).weight(.medium))
                       .lineSpacing(24)
-                      .foregroundColor(Color(hex: 0x686C80))                      
+                      .foregroundColor(Color(red: 0.41, green: 0.42, blue: 0.50))
                       .offset(x: -4.33, y: -23.74)
 
                 }
@@ -88,12 +88,12 @@ struct LessonView: View {
                     print("DEBUG: Continue Button Clicked")
                 }) {
                     Text("Continue")
-                        .font(Font.custom("Alatsi-Regular", size: 20))
+                        .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
                         .frame(width: 319, height: 60)
                         .background(
                             RoundedRectangle(cornerRadius: 52)
-                                .fill(Color(hex: 0xA92028))
+                                .fill(Color(red: 0.6627451, green: 0.1254902, blue: 0.15686275))
                         )
                 }
                 .padding(.top, 20)

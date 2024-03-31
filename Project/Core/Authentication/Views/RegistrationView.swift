@@ -17,7 +17,6 @@ struct RegistrationView: View {
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        NavigationView{
             VStack{
                 
                 Group{
@@ -194,9 +193,6 @@ struct RegistrationView: View {
                 }.offset(x: 0, y: 40)
                 
             }
-            
-        }
-        
     }
 }
 

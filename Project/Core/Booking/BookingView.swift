@@ -85,10 +85,38 @@ struct BookingView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Booking Details")
-                .font(Font.custom("Alatsi-Regular", size: 30))
-                .foregroundColor(Color(hex: 0x14214C))
-                .padding()
+            
+            HStack {
+                //header
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.clear)
+                        .frame(width: 40, height: 40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 1)
+                        )
+                    
+                    NavigationLink(
+                        destination: HomeView().navigationBarHidden(true),
+                        label: {
+                            Image(systemName: "chevron.backward")
+                                .font(Font.custom("Alatsi-Regular", size: 15))
+                                .foregroundColor(Color(hex: 0x14214C))
+                        })
+                }.padding(.leading).padding(.trailing)
+                
+               
+                
+                Text("Booking Details")
+                    .font(Font.custom("Alatsi-Regular", size: 30))
+                    .foregroundColor(Color(hex: 0x14214C))
+                    .padding(.leading)
+                
+                Spacer()
+                
+            }.padding(.top)
+            
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
@@ -172,18 +200,19 @@ struct BookingView: View {
                                     .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .foregroundColor(Color(.systemGray5))
+                                            .foregroundColor(Color(hex: 0xEEF0F7))
                                     )
                         }
                         .padding()
                         .background(
                         RoundedRectangle(cornerRadius: 8)
-                        .foregroundColor(Color(hex: 0xEEF0F7))
+                        .foregroundColor(Color(.systemGray6))
                         )
             
                         
                     }
                     .padding()
+                    .padding(.bottom, 3)
                     
                     
                     //Book Button
@@ -199,7 +228,6 @@ struct BookingView: View {
                             .font(Font.custom("Alatsi-Regular", size: 20))
                             .foregroundColor(.white)
                             .padding()
-                            .cornerRadius(10)
                             .frame(width: 319, height: 60)
                             .background(
                                 RoundedRectangle(cornerRadius: 52)
@@ -236,11 +264,10 @@ struct BookingView: View {
                 .font(Font.custom("Alatsi-Regular", size: 15))
                 .foregroundColor(Color(hex: 0x686C80))
                 .frame(width: 350, height: 50)
-                .background(Color(hex: 0xEEF0F7))
+                .background(Color(.systemGray5))
                 .cornerRadius(8)
                 .padding(.horizontal, 20)
         }
-
     }
     
     private func dateTimePicker(title: String, date: Binding<Date>, components: DatePickerComponents) -> some View {

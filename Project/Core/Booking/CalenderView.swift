@@ -19,8 +19,6 @@ struct CalendarView: View {
     
     
     var body: some View {
-            
-        NavigationView {
             VStack {
                 ZStack {
                     HStack(spacing: 0) {
@@ -57,13 +55,6 @@ struct CalendarView: View {
                 Spacer()
             }
 
-        }
-        
-
     }
 }
 
-
-#Preview {
-    CalendarView()
-}

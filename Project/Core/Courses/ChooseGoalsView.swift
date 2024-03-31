@@ -15,18 +15,20 @@ struct ChooseGoalsView: View {
 
     
     var body: some View {
-
-        NavigationView{
             
             VStack() {
                 
-                //Back Button Arrow
-                NavigationLink(destination: ChooseLanguageView().navigationBarHidden(true)) {
-                    Image("backarrow")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                }
-                .offset(x: -140, y: -20)
+                HStack{
+                    //Back Button Arrow
+                    NavigationLink(destination: ChooseLanguageView().navigationBarHidden(true)) {
+                        Image("backarrow")
+                            .font(.title)
+                            .foregroundColor(.blue)
+                    }
+                    Spacer()
+                }.padding(.leading, 20)
+                
+                
                 
                 
                 //Headers - Title, Subtitle
@@ -35,6 +37,7 @@ struct ChooseGoalsView: View {
                      .lineSpacing(34)
                      .foregroundColor(Color(hex: 0x686C80))
                      .offset(x: 0, y: -10)
+                     .padding(.top)
 
                 
                 Text("What are your main goals? We will help you \nachieve them!")
@@ -42,7 +45,6 @@ struct ChooseGoalsView: View {
                       .lineSpacing(8)
                       .foregroundColor(Color(hex: 0x686C80))
                       .multilineTextAlignment(.center)
-                
             
             
             //Languages Box Selection
@@ -72,7 +74,7 @@ struct ChooseGoalsView: View {
                 isChooseLevelViewActive = true
             }) {
                 Text("Continue")
-                    .font(Font.custom("Alatsi-Regular", size: 20))
+                    .font(.system(size: 20, weight: .bold))
                     .foregroundColor(.white)
                     .frame(width: 319, height: 60)
                     .background(
@@ -93,22 +95,8 @@ struct ChooseGoalsView: View {
                                     }
                                 )
                         )
-                
-                
-                //Navigation Link Text
-                NavigationLink(
-                        destination: EmptyView().navigationBarHidden(true),
-                        label: {
-                            Text("By using it you confirm that you have read and agree to our terms of service and privacy policy")
-                                .font(Font.custom("Alatsi-Regular", size: 12))
-                                .foregroundColor(Color(hex: 0x686C80))
-                        })
-                .padding(.top, 20)
-                .padding(.horizontal, 40)
             
-            }
-            
-        }
+            }.padding(.top)
 
     }
 }
@@ -120,24 +108,22 @@ struct GoalsSelectionRow: View {
     let action: () -> Void
     
     var body: some View {
+        
         Button(action: action) {
             HStack {
                 
                 Circle()
-                    .foregroundColor(isSelected ? .green : Color(hex: 0xC5C8D8))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0xC5C8D8))
                     .frame(width: 39)
                     .aspectRatio(1, contentMode: .fit)
                     .offset(x: 40, y: 0)
-
                     
                 Spacer()
-
-
                 
                 Text(goal)
                     .font(Font.custom("Alatsi-Regular", size: 20))
                     .lineSpacing(34)
-                    .foregroundColor(isSelected ? .green : Color(hex: 0x686C80))
+                    .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0x686C80))
                     .padding(.leading, 10)
 
                 Spacer()

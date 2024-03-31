@@ -33,6 +33,8 @@ struct CustomCalendar: View {
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.black)
+                    }.onTapGesture {
+                        selectedBooking = nil
                     }
                     
                     Button(action: {
@@ -40,6 +42,8 @@ struct CustomCalendar: View {
                     }) {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.black)
+                    }.onTapGesture {
+                        selectedBooking = nil
                     }
                 }
             }.padding(.bottom)

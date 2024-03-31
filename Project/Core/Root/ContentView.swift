@@ -11,29 +11,31 @@ struct ContentView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
-        Group{
-            if authViewModel.userSession == nil {
-                SplashScreenView()
-            } else {
-                //SplashScreenView()
-                TabView {
-                    HomeView()
-                        .tabItem {
-                            Label("Home", systemImage: "house")
-                        }
-
-                    CalendarView()
-                        .tabItem {
-                            Label("Calender", systemImage: "calendar")
-                        }
-                    
-                    ProfileView()
-                        .tabItem {
-                            Label("Profile", systemImage: "person")
-                        }
+        NavigationView{
+            Group{
+                if authViewModel.userSession == nil {
+                    SplashScreenView()
+                } else {
+                    //SplashScreenView()
+                    TabView {
+                        HomeView()
+                            .tabItem {
+                                Label("Home", systemImage: "house")
+                            }
+                        
+                        CalendarView()
+                            .tabItem {
+                                Label("Calender", systemImage: "calendar")
+                            }
+                        
+                        ProfileView()
+                            .tabItem {
+                                Label("Profile", systemImage: "person")
+                            }
+                    }
                 }
-            }
-        }.preferredColorScheme(.light)
+            }.preferredColorScheme(.light)
+        }
     }
 }
 

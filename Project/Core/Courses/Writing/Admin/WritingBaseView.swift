@@ -10,11 +10,12 @@ import Firebase
 
 class Characters: ObservableObject {
     @Published var characters: [Character] = []
+    
 
-    init() {
+   init() {
         print("Call fetchCharacters")
-        fetchCharacters()
-    }
+      fetchCharacters()
+   }
 
     func fetchCharacters() {
         let charactersRef = Database.database().reference().child("characters")
@@ -34,18 +35,19 @@ class Characters: ObservableObject {
                    let id = characterData["id"] as? Int,
                    let name = characterData["name"] as? String,
                    let image = characterData["image"] as? String,
-                   let strokeOrderImagesData = characterData["strokeOrderImages"] as? [String] {
+                   let strokeOrderImagesData = characterData["strokeOrderImages"] as? [String],
+                   let dotsImage = characterData["dotsimage"] as? String { // Add this line
                     
                     let strokeOrderImages = strokeOrderImagesData.sorted(by: { $0 < $1 })
                     
-                    let character = Character(id: id, name: name, image: image, strokeOrderImages: strokeOrderImages, expectedPath: [])
+                    let character = Character(id: id, name: name, image: image, strokeOrderImages: strokeOrderImages, expectedPath: [], dotsImage: dotsImage) // Modify this line
                     characters.append(character)
                     
                     print("Character with key '\(characterKey)' successfully retrieved.")
                 } else {
                     print("Error retrieving character with key '\(characterKey)'.")
                     if let characterData = characterData as? [String: Any] {
-                        print("Character data: \(characterData)")
+                        // print("Character data: \(characterData)")
                     } else {
                         print("Invalid character data format.")
                     }
@@ -63,14 +65,14 @@ struct Character: Identifiable {
     let image: String
     let strokeOrderImages: [String]?
     var expectedPath: [Path]
+    let dotsImage: String
 }
 
 struct WritingBaseView: View {
-    @StateObject private var characters = Characters()
+    @ObservedObject var characters: Characters
     @State private var selectedCharacter: Character?
 
     var body: some View {
-        NavigationView {
             List(characters.characters) { character in
                 Button(action: {
                     selectedCharacter = character
@@ -82,7 +84,6 @@ struct WritingBaseView: View {
             .sheet(item: $selectedCharacter) { character in
                 CharacterOptionsView(character: character, characters: characters)
             }
-        }
     }
 }
 
@@ -114,28 +115,6 @@ struct CharacterOptionsView: View {
                 .padding()
 
             Button(action: {
-                showStrokeOrder.toggle()
-            }) {
-                Text("Show Stroke Order")
-            }
-            .sheet(isPresented: $showStrokeOrder) {
-                ShowStrokeOrderView(strokeOrderImages: character.strokeOrderImages!, dismissAction: {
-                    showStrokeOrder = false
-                })
-            }
-
-            Button(action: {
-                writeCharUser.toggle()
-            }) {
-                Text("Write Character (User)")
-            }
-            .sheet(isPresented: $writeCharUser) {
-                WriteCharUserView(character: character, expectedPath: selectedCharacterExpectedPath, dismissAction: {
-                    writeCharUser = false
-                })
-            }
-
-            Button(action: {
                 writeCharAdmin.toggle()
             }) {
                 Text("Write Character (Admin)")
@@ -149,6 +128,3 @@ struct CharacterOptionsView: View {
     }
 }
 
-#Preview {
-    WritingBaseView()
-}

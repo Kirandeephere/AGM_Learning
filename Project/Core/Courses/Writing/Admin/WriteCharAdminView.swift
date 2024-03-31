@@ -22,12 +22,47 @@ struct WriteCharAdminView: View {
 
     var body: some View {
         VStack {
+            HStack(spacing: 10){
+                NavigationLink(
+                    destination: HiraganaLessonView().navigationBarHidden(true),
+                    label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.black)
+                            .font(.headline)
+                            .padding()
+                    })
+                
+                Rectangle().foregroundColor(.gray).frame(width: 300 , height:12).cornerRadius(20)
+                
+                Spacer()
+                
+            }
+            
+            Spacer()
+            
+            //Reset Button
+            HStack{
+                Spacer ()
+                Button(action: {
+                    resetDrawing()
+                }) {
+                    Image(systemName: "arrow.circlepath")
+                        .resizable()
+                        .frame(width: 24, height: 20)
+                        .foregroundColor(.black)
+                        .padding(.trailing)
+                }
+                
+            
+            }
+            
+            
             GeometryReader { geometry in
                 ZStack {
                     Image(character.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width:200, height:200)
+                        .frame(width: 310, height: 310)
                         .padding()
                     
                     // Drawing paths

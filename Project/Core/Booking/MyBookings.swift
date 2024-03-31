@@ -174,7 +174,6 @@ struct MyBookingView: View {
     
     
     var body: some View {
-        NavigationView{
             VStack {
                 
                 // Header Starts
@@ -221,7 +220,6 @@ struct MyBookingView: View {
                 Spacer() // Add any additional spacing if needed
                 
             }
-        }
     }
     
     
