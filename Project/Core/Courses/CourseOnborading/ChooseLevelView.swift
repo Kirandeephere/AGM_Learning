@@ -1,5 +1,5 @@
 //
-//  ChooseGoalsView.swift
+//  ChooseLevelView.swift
 //  Project
 //
 //  Created by Gursewak Singh on 25/3/2024.
@@ -7,20 +7,19 @@
 
 import SwiftUI
 
-
-struct ChooseGoalsView: View {
-    @State private var selectedGoals: String = ""
-    @EnvironmentObject var viewModel: AuthViewModel
+struct ChooseLevelView: View {
+    @State private var selectedLevel: String = ""
     @State private var isChooseLevelViewActive = false
 
-    
+
     var body: some View {
-            
+        
+            //Headers - Title, Back Button
             VStack() {
                 
                 HStack{
                     //Back Button Arrow
-                    NavigationLink(destination: ChooseLanguageView().navigationBarHidden(true)) {
+                    NavigationLink(destination: ChooseGoalsView().navigationBarHidden(true)) {
                         Image("backarrow")
                             .font(.title)
                             .foregroundColor(.blue)
@@ -30,45 +29,43 @@ struct ChooseGoalsView: View {
                 
                 
                 
-                
-                //Headers - Title, Subtitle
-                Text("Choose your goals")
-                    .font(Font.custom("Alatsi-Regular", size: 30))
-                     .lineSpacing(34)
-                     .foregroundColor(Color(hex: 0x686C80))
-                     .offset(x: 0, y: -10)
-                     .padding(.top)
-
-                
-                Text("What are your main goals? We will help you \nachieve them!")
-                    .font(Font.custom("Alatsi-Regular", size: 14))
-                      .lineSpacing(8)
-                      .foregroundColor(Color(hex: 0x686C80))
-                      .multilineTextAlignment(.center)
+                VStack(spacing: 15){
+                    //Title
+                    Text("What's your level?")
+                        .font(Font.custom("Alatsi-Regular", size: 30))
+                        .lineSpacing(34)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        
+                    
+                    
+                    Text("Choose your current level. We will \nsuggest the best lessons for you")
+                        .font(Font.custom("Alatsi-Regular", size: 14))
+                        .lineSpacing(8)
+                        .foregroundColor(Color(hex: 0x686C80))
+                        .multilineTextAlignment(.center)
+                }.padding(.top)
             
-            
-            //Languages Box Selection
-            GoalsSelectionRow(goal: "Watch Anime", isSelected: selectedGoals == "Watch Anime") {
-                            selectedGoals = "Watch Anime"
+            //Level Box Selection
+            LevelSelectionRow(level: "I'm just starting", isSelected: selectedLevel == "I'm just starting") {
+                        selectedLevel = "I'm just starting"
                        }
-                        GoalsSelectionRow(goal: "Learn from Scrach", isSelected: selectedGoals == "Learn from Scrach") {
-                           selectedGoals = "Learn from Scrach"
+                        LevelSelectionRow(level: "I know the basics", isSelected: selectedLevel == "I know the basics") {
+                           selectedLevel = "I know the basics"
                        }
-                        GoalsSelectionRow(goal: "Practice my speaking", isSelected: selectedGoals == "Practice my speaking") {
-                           selectedGoals = "Practice my speaking"
+                        LevelSelectionRow(level: "I know a lot", isSelected: selectedLevel == "I know a lot") {
+                           selectedLevel = "I know a lot"
                        }
-                        GoalsSelectionRow(goal: "Improve my accent", isSelected: selectedGoals == "Improve my accent") {
-                            selectedGoals = "Improve my accent"
-                        }
-                        GoalsSelectionRow(goal: "Sleep Learning", isSelected: selectedGoals == "Sleep Learning") {
-                            selectedGoals = "Sleep Learning"
-                        }
+                        LevelSelectionRow(level: "I'm Samurai", isSelected: selectedLevel == "I'm Samurai") {
+                            selectedLevel = "I'm Samurai"
+                }
             
             
-            //Continue Button
+            
+            //IDK Button
             Button(action: {
                 // Button action
-                print("DEBUG: Continue Button Clicked")
+                
+                // print("DEBUG: Continue Button Clicked")
                 
                 // Set the state variable to activate ChooseLevelView
                 isChooseLevelViewActive = true
@@ -83,12 +80,11 @@ struct ChooseGoalsView: View {
                     )
             }
             .padding(.top, 20)
-            .disabled(selectedGoals.isEmpty) // Disable the button if nothing is selected.
-
+            .disabled(selectedLevel.isEmpty) // Disable the button if nothing is selected
             .background(
-            // Navigate to ChooseLevelView on clicked button
+            // Navigate to PrepareView on clicked button
                     NavigationLink(
-                            destination: ChooseLevelView().navigationBarHidden(true),
+                            destination: PrepareView().navigationBarHidden(true),
                             isActive: $isChooseLevelViewActive,
                             label: {
                                         EmptyView()
@@ -96,19 +92,19 @@ struct ChooseGoalsView: View {
                                 )
                         )
             
-            }.padding(.top)
-
+            }
+            .padding(.horizontal, 20)
+        
     }
 }
 
 //Selection Function
-struct GoalsSelectionRow: View {
-    let goal: String
+struct LevelSelectionRow: View {
+    let level: String
     let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
-        
         Button(action: action) {
             HStack {
                 
@@ -117,10 +113,12 @@ struct GoalsSelectionRow: View {
                     .frame(width: 39)
                     .aspectRatio(1, contentMode: .fit)
                     .offset(x: 40, y: 0)
+
                     
                 Spacer()
+
                 
-                Text(goal)
+                Text(level)
                     .font(Font.custom("Alatsi-Regular", size: 20))
                     .lineSpacing(34)
                     .foregroundColor(isSelected ? Color(hex: 0xA92028) : Color(hex: 0x686C80))
@@ -130,7 +128,7 @@ struct GoalsSelectionRow: View {
 
             }
             .frame(width: 325, height: 67)
-            .background(Color(hex: 0xEEF0F7))
+            .background(Color(red: 0.93, green: 0.94, blue: 0.97))
             .cornerRadius(10)
             .padding(.top, 10)
         }
@@ -139,5 +137,5 @@ struct GoalsSelectionRow: View {
 }
 
 #Preview {
-    ChooseGoalsView()
+    ChooseLevelView()
 }

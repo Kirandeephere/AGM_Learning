@@ -65,7 +65,7 @@ struct ProfileView: View {
                         
                         // Edit Profile
                         Button(action: {
-                            print("DEBUG: Edit Profile button clicked")
+                            // print("DEBUG: Edit Profile button clicked")
                             isEditProfileActive = true
                         }) {
                             NavigationLink(destination: EditProfileView().navigationBarHidden(true), isActive: $isEditProfileActive) {
@@ -76,7 +76,7 @@ struct ProfileView: View {
                        
                         // Change Password
                         Button(action: {
-                            print("DEBUG: Change Password button clicked")
+                            //print("DEBUG: Change Password button clicked")
                             isChangePasswordActive = true
                         }) {
                             NavigationLink(destination: NewPasswordView().navigationBarHidden(true), isActive: $isChangePasswordActive) {
@@ -97,7 +97,7 @@ struct ProfileView: View {
                         
                             Button(action: {
                                     notificationtoggle.toggle()
-                                    print("DEBUG: Notifications toggle is clicked")
+                                    // print("DEBUG: Notifications toggle is clicked")
 
                                 }) {
                                     RoundedRectangle(cornerRadius: 50)
@@ -123,7 +123,7 @@ struct ProfileView: View {
                         .overlay(
                             Button(action: {
                                 showLogoutConfirmation = true
-                                print("DEBUG: Logout Button is clicked")
+                                // print("DEBUG: Logout Button is clicked")
                             }) {
                                 SettingsRowView(imageName: nil,
                                                 title: "Logout",
@@ -146,11 +146,11 @@ struct ProfileView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                print("fetchUser start")
+                // print("fetchUser start")
                 Task {
                     do {
                         try await viewModel.fetchUser()
-                        print("fetchUser done")
+                        //print("fetchUser done")
                     } catch {
                         print("Error fetching user: \(error)")
                     }

@@ -22,7 +22,7 @@ class BookingStore: ObservableObject {
     
     @MainActor func fetchBookings(authViewModel: AuthViewModel) {
         if let currentUserId = authViewModel.currentUser?.id {
-            print("Fetching bookings for user with ID: \(currentUserId)")
+            //print("Fetching bookings for user with ID: \(currentUserId)")
             
             let database = Database.database().reference()
             let userBookingsRef = database.child("Bookings").child(currentUserId)
@@ -30,7 +30,7 @@ class BookingStore: ObservableObject {
             userBookingsRef.observeSingleEvent(of: .value) { snapshot in
                 var fetchedBookings: [Booking] = []
                 
-                print("Received snapshot with \(snapshot.childrenCount) child nodes")
+                // print("Received snapshot with \(snapshot.childrenCount) child nodes")
 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd" // Set the correct date format
@@ -55,7 +55,7 @@ class BookingStore: ObservableObject {
                     }
                 }
                 
-                print("Fetched \(fetchedBookings.count) bookings")
+                // print("Fetched \(fetchedBookings.count) bookings")
 
                 // Sort the bookings based on the date (in ascending order)
                 fetchedBookings.sort { (booking1, booking2) -> Bool in
@@ -65,7 +65,7 @@ class BookingStore: ObservableObject {
                 // Update the main bookings array and trigger re-computation of filteredBookings
                 self.bookings = fetchedBookings
                 
-                print("Updated bookings array with \(self.bookings.count) bookings")
+                //print("Updated bookings array with \(self.bookings.count) bookings")
             }
         } else {
             print("No current user ID found")

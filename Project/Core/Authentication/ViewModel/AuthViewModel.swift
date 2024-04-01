@@ -61,9 +61,9 @@ class AuthViewModel: ObservableObject{
             let encodedUser = try Firestore.Encoder().encode(user) 
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
-            print("DEBUG: User created successfully")
+            // print("DEBUG: User created successfully")
         }catch  {
-            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            print("Failed to create user with error \(error.localizedDescription)")
         }
     }
     
@@ -75,9 +75,9 @@ class AuthViewModel: ObservableObject{
             try Auth.auth().signOut()
             self.userSession = nil //Wipes out user session and takes back to login
             self.currentUser = nil //Wipes out current user data model
-            print("DEBUG: User has been logged out successfully")
+            // print("DEBUG: User has been logged out successfully")
         }catch{
-            print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
+            print("Failed to sign out with error \(error.localizedDescription)")
         }
     }
     
@@ -98,24 +98,12 @@ class AuthViewModel: ObservableObject{
                 let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
                 self.currentUser = try snapshot.data(as: User.self)
                 
-                print("DEBUG: Current user is \(self.currentUser)")
+                // print("DEBUG: Current user is \(self.currentUser)")
             } catch {
                 print("Error fetching user: \(error)")
             }
         }
-    
-    
-    
-    //Firebase Reset Password Function
-    func resetPassword(forEmail email: String) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let error = error {
-                print("DEBUG: Failed to send password reset email with error \(error.localizedDescription)")
-            } else {
-                print("DEBUG: Password reset email sent successfully")
-            }
-        }
-    }
+
     
     
     
@@ -135,9 +123,9 @@ class AuthViewModel: ObservableObject{
             // Add other fields you want to update here
         ]) { error in
             if let error = error {
-                print("DEBUG: Error updating user information: \(error)")
+                print("Error updating user information: \(error)")
             } else {
-                print("DEBUG: User information updated successfully")
+                print("User information updated successfully")
             }
         }
     }

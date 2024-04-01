@@ -13,13 +13,13 @@ class Characters: ObservableObject {
     
 
    init() {
-        print("Call fetchCharacters")
+       // print("DEBUG: Call fetchCharacters")
       fetchCharacters()
    }
 
     func fetchCharacters() {
         let charactersRef = Database.database().reference().child("characters")
-        print("Fetching character data from Firebase...")
+        // print(" DEBUG: Fetching character data from Firebase...")
         charactersRef.observeSingleEvent(of: .value) { (snapshot) in
             guard let characterDict = snapshot.value as? [String: Any] else {
                 print("Unable to retrieve character data from snapshot.")
@@ -29,7 +29,7 @@ class Characters: ObservableObject {
             var characters: [Character] = []
             
             for (characterKey, characterData) in characterDict {
-                print("Processing character with key: \(characterKey)")
+                // print("DEBUG: Processing character with key: \(characterKey)")
                 
                 if let characterData = characterData as? [String: Any],
                    let id = characterData["id"] as? Int,
@@ -43,7 +43,7 @@ class Characters: ObservableObject {
                     let character = Character(id: id, name: name, image: image, strokeOrderImages: strokeOrderImages, expectedPath: [], dotsImage: dotsImage) // Modify this line
                     characters.append(character)
                     
-                    print("Character with key '\(characterKey)' successfully retrieved.")
+                    // print("DEBUG: Character with key '\(characterKey)' successfully retrieved.")
                 } else {
                     print("Error retrieving character with key '\(characterKey)'.")
                     if let characterData = characterData as? [String: Any] {
@@ -54,7 +54,7 @@ class Characters: ObservableObject {
                 }
             }
             self.characters = characters
-            print("Character data successfully fetched. Total characters: \(characters.count)")
+            // print(" DEBUG: Character data successfully fetched. Total characters: \(characters.count)")
         }
     }
 }

@@ -10,43 +10,22 @@ import Foundation
 func getBotResponse(message: String) -> String {
     let tempMessage = message.lowercased()
     
-    if tempMessage.contains("hello") || tempMessage.contains("hi"){
-        return "Hey there!"
-    } else if tempMessage.contains("goodbye") {
-        return "Talk to you later!"
-    } else if tempMessage.contains("how are you") {
-        return "I'm fine, how about you?"
-    } else if tempMessage.contains("create essay") {
-        return "Sure! What is the topic of your essay?"
-    } else if tempMessage.contains("japanese") {
-        return "こんにちは！元気ですか？"
-    } else if tempMessage.contains("english") {
-        return "Hello! How are you?"
-    } else if tempMessage.contains("portuguese") {
-        return "Olá! Como você está?"
-    } else if tempMessage.contains("ui/ux") {
-        if tempMessage.contains("difference") {
-            return "UI (User Interface) refers to the visual elements and layout of a product, while UX (User Experience) focuses on the overall experience and usability. UI design is about how things look and feel, while UX design is about how things work and how users interact with them."
-        } else if tempMessage.contains("principles") {
-            return "Some key principles of good UI/UX design include simplicity, consistency, clarity, and user-centricity. The design should be intuitive, visually appealing, and provide a seamless and enjoyable experience for the users."
-        } else if tempMessage.contains("tools") {
-            return "Popular UI/UX design tools include Sketch, Figma, Adobe XD, and InVision. These tools offer features for creating wireframes, prototypes, and collaborative design workflows."
-        } else if tempMessage.contains("examples") {
-            return "Some examples of successful UI/UX design in popular products include the clean and intuitive interfaces of Apple products, the user-friendly design of Google search, and the seamless mobile app experiences of Instagram and Airbnb."
-        } else if tempMessage.contains("user-centered design") {
-            return "User-centered design is an approach that involves understanding users' needs, preferences, and behaviors through research and iterative testing. It focuses on designing products that meet user requirements and provide positive experiences."
-        } else if tempMessage.contains("challenges") {
-            return "Common challenges in UI/UX design include balancing user expectations with business goals, designing for different devices and platforms, and incorporating accessibility considerations. Overcoming these challenges often requires collaboration, research, and continuous learning."
-        } else if tempMessage.contains("best practices") {
-            return "Some UI/UX design best practices include conducting user research, using consistent and intuitive navigation, optimizing performance and loading times, providing clear and concise feedback, and prioritizing accessibility and inclusivity."
-        } else if tempMessage.contains("trends") {
-            return "Current UI/UX design trends include dark mode interfaces, microinteractions, voice user interfaces, minimalistic and flat design styles, augmented reality (AR) and virtual reality (VR) experiences, and personalized and adaptive interfaces."
-        } else {
-            return "UI/UX stands for User Interface and User Experience. It involves designing and enhancing the visual and interactive aspects of a product to ensure a great user experience."
-        }
-    } else {
+   if tempMessage.contains("study plan"){
+        return "Of course! I'd be happy to help you create a study plan for learning Japanese. Here's a suggested study plan that you can follow: \n \n 1. Set Clear Goals:\n - Start by determining your specific goals for learning Japanese. Do you want to become conversational, pass a proficiency exam, or simply gain a basic understanding? Clear goals will help you stay focused and motivated throughout your learning journey. \n  \n 2. Learn the fifty sound: \n - Just like learning English requires knowing the ABCs, learning Japanese also requires knowing the syllabary, and Japanese is also divided into hiragana and katakana. Memorizing both of them can be regarded as laying the most basic foundation for learning Japanese. \n\n 3. Learn Hiragana and Katakana:\n - Begin by mastering the two phonetic scripts of Japanese: Hiragana and Katakana. These scripts will allow you to read and write Japanese words accurately. There are various online resources, mobile apps, and flashcards available to practice these scripts.\n\n 4.  Build Vocabulary: \n - Start expanding your vocabulary by learning common words and phrases. Consider using vocabulary apps, textbooks, or online resources that provide word lists and flashcards. Practice regularly to reinforce your knowledge.\n\n 5. Study Grammar: \n - Japanese grammar can be quite different from English. Invest time in studying grammar rules and sentence structures. Use textbooks, online courses, or language learning apps that offer comprehensive explanations and exercises.\n\n 6. Practice Listening and Speaking: \n - Listening and speaking skills are essential for effective communication. Engage in listening exercises using audio resources, podcasts, or language learning apps. Practice speaking by finding conversation partners, joining language exchange groups, or using online language tutoring platforms. \n\n 7. Reading Comprehension: \n - Improve your reading skills by gradually incorporating Japanese texts into your study routine. Start with simple materials, such as children's books, graded readers, or online articles. As you progress, challenge yourself with more complex texts. \n\n 8. Writing Practice: \n - Develop your writing skills by regularly practicing Japanese writing. Start with simple sentences and gradually progress to writing paragraphs or short essays. Consider using writing prompts, online forums, or language exchange partners for feedback. \n\n 9. Cultural Immersion: \n - Immerse yourself in Japanese culture to gain a deeper understanding of the language. Watch Japanese movies, anime, or TV shows with subtitles. Listen to Japanese music, explore Japanese cuisine, and consider joining cultural events or language exchange meetups. \n\n 10. Consistency and Review: \n - Learning a language requires consistency and regular review. Set aside dedicated study time each day or week and stick to your schedule. Review and revise previously learned material to reinforce your knowledge. \n\nRemember, everyone learns at their own pace, so adapt the study plan to suit your learning style and preferences. Good luck with your Japanese language learning journey!"
+   } else if tempMessage.contains("hiragana"){
+       return "Certainly! Here are some tips to help you learn Hiragana and Katakana: \n \n  1. Start with the Basics: Begin by learning the basic strokes and shapes of each character. Familiarize yourself with the stroke order, as it will help you write the characters correctly. \n \n 2. Mnemonics and Associations: Create mnemonic devices or associations to remember the shapes and sounds of each character. For example, the Hiragana character \"か\" (ka) can be associated with the shape of a \"Kangaroo\" jumping. \n \n 3. Practice Writing: Practice writing each character repeatedly to reinforce your memory. Use practice sheets or grid paper to ensure proper spacing and proportion. Consider using tracing sheets initially to get a feel for the character's shape and stroke order. \n \n  4. Flashcards and Repetition: Use flashcards to practice recognizing and recalling the characters. Write the character on one side and its pronunciation on the other. Review the flashcards regularly to reinforce your memory. \n \n  5. Grouping and Categorization: Group similar characters together based on their shapes or sounds. For example, characters that have a similar shape like \"さ\" (sa), \"き\" (ki), and \"そ\" (so) can be grouped together to aid in memorization. \n \n Remember, learning Hiragana and Katakana may seem challenging at first, but with consistent practice and dedication, you will become proficient. Don't get discouraged if it takes time to memorize all the characters. Keep practicing, and you'll gradually improve."
+   } else if tempMessage.contains("fifty sound"){
+       return "Certainly! Here are some tips specifically for learning the fifty sounds (or sounds and characters): \n\n 1. Learn the Five Vowel Sounds First: Start by focusing on the five vowel sounds in Japanese: \"a,\" \"i,\" \"u,\" \"e,\" and \"o.\" Practice pronouncing them correctly and understanding their written forms in both Hiragana and Katakana. \n\n 2. Group Sounds with Similar Pronunciations: Identify groups of sounds that have similar pronunciations and practice them together. For example, the \"k\" sounds (ka, ki, ku, ke, ko) or the \"s\" sounds (sa, shi, su, se, so). This will help you recognize patterns and make learning more efficient. \n\n 3. Use Mnemonics and Memory Techniques: Create mnemonic devices or memory aids to associate each sound with something memorable. For example, you can associate the sound \"ka\" with a picture of a cat or \"sa\" with a snake. Visualizing these associations can help with recall. \n\n 4. Practice Writing and Repetition: Write each sound repeatedly to reinforce your memory and improve your handwriting. Pay attention to stroke order and overall character shape. Regular practice and repetition will help you memorize the characters. \n\n 5. Stay Consistent and Motivated: Consistency is key when learning the fifty sounds. Set a regular study schedule and stick to it. Find ways to stay motivated, such as setting small goals or rewarding yourself for reaching milestones. \n\n Remember, learning the fifty sounds may take time and practice, but with perseverance and dedication, you will become more comfortable with them. Enjoy the process and celebrate your progress along the way!"
+   } else if tempMessage.contains("hello") || tempMessage.contains("hey"){
+        return "Hi there! How can I help you?"
+   } else if tempMessage.contains("bye"){
+       return "Goodbye! If you have any more questions in the future, feel free to ask. Have a great day"
+   } else if tempMessage.contains ("homework?"){
+       return "Certainly! I'll do my best to assist you with your homework. Please provide me with the details of your assignment or let me know the specific subject or topic you need help with."
+   } else {
         return "I'm sorry, could you please clarify your question?"
     }
 }
+
 
 

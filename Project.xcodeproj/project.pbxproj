@@ -11,7 +11,6 @@
 		340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E12802BB112BD0050F82A /* ChooseLanguageView.swift */; };
 		3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAD2BAD247600692F51 /* EditProfileView.swift */; };
 		3463DCB02BAD756300692F51 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463DCAF2BAD756300692F51 /* NewPasswordView.swift */; };
-		348A37AE2BB65C3700DC102C /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37AD2BB65C3700DC102C /* LessonView.swift */; };
 		348A37B12BB65CF700DC102C /* HiraganaStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */; };
 		348A37B22BB65CF700DC102C /* HiraganaLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */; };
 		34D0E28E2BB13D1B0081F083 /* ChooseGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */; };
@@ -85,12 +84,10 @@
 		34D6E84D2BABE0BD0095A97B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 34D6E84C2BABE0BD0095A97B /* FirebaseStorageCombine-Community */; };
 		9F0515CE2BAEB954004C53DC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0515CD2BAEB954004C53DC /* Color.swift */; };
 		9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0515D12BAEBDF0004C53DC /* BotResponse.swift */; };
-		9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0515D32BAEC849004C53DC /* ChatHistoryView.swift */; };
 		9F2E904B2BB517E20004FEE7 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2E904A2BB517E20004FEE7 /* CardBackground.swift */; };
 		9F2E904D2BB55E3D0004FEE7 /* UpcomingBookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2E904C2BB55E3D0004FEE7 /* UpcomingBookings.swift */; };
 		9F390FF82BADB6E2004FF7C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F390FF72BADB6E2004FF7C4 /* HomeView.swift */; };
 		9F390FFA2BADBCEA004FF7C4 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F390FF92BADBCEA004FF7C4 /* CalenderView.swift */; };
-		9F390FFC2BADBE5F004FF7C4 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F390FFB2BADBE5F004FF7C4 /* CourseView.swift */; };
 		9F390FFE2BADBE6D004FF7C4 /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F390FFD2BADBE6D004FF7C4 /* ChatBotView.swift */; };
 		9F3910002BADBE92004FF7C4 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F390FFF2BADBE92004FF7C4 /* ReviewView.swift */; };
 		9F3910022BADBEB0004FF7C4 /* VolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3910012BADBEB0004FF7C4 /* VolunteerView.swift */; };
@@ -115,7 +112,6 @@
 		340E12802BB112BD0050F82A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
 		3463DCAD2BAD247600692F51 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3463DCAF2BAD756300692F51 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
-		348A37AD2BB65C3700DC102C /* LessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaStartView.swift; sourceTree = "<group>"; };
 		348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiraganaLessonView.swift; sourceTree = "<group>"; };
 		34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalsView.swift; sourceTree = "<group>"; };
@@ -137,14 +133,12 @@
 		34D6E8162BABDF0B0095A97B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		9F0515CD2BAEB954004C53DC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9F0515D12BAEBDF0004C53DC /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
-		9F0515D32BAEC849004C53DC /* ChatHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryView.swift; sourceTree = "<group>"; };
 		9F13CDA52BB9C50000F8C308 /* Alatsi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alatsi.ttf; sourceTree = "<group>"; };
 		9F13CDA82BB9C9D200F8C308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9F2E904A2BB517E20004FEE7 /* CardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
 		9F2E904C2BB55E3D0004FEE7 /* UpcomingBookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBookings.swift; sourceTree = "<group>"; };
 		9F390FF72BADB6E2004FF7C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9F390FF92BADBCEA004FF7C4 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
-		9F390FFB2BADBE5F004FF7C4 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		9F390FFD2BADBE6D004FF7C4 /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		9F390FFF2BADBE92004FF7C4 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		9F3910012BADBEB0004FF7C4 /* VolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerView.swift; sourceTree = "<group>"; };
@@ -232,24 +226,21 @@
 		340E127E2BB112620050F82A /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				9F390FFF2BADBE92004FF7C4 /* ReviewView.swift */,
+				9F5281C72BBA5BDB006C5F1F /* CourseOnborading */,
 				9FFAEF2A2BB6C5110049AAFE /* Writing */,
-				340E12802BB112BD0050F82A /* ChooseLanguageView.swift */,
-				34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */,
-				34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */,
-				34D0E2912BB14A340081F083 /* PrepareView.swift */,
-				34D0E2932BB182060081F083 /* UnlockView.swift */,
-				348A37AC2BB65BFB00DC102C /* Japaness Course */,
+				348A37AC2BB65BFB00DC102C /* Japanse Course */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
 		};
-		348A37AC2BB65BFB00DC102C /* Japaness Course */ = {
+		348A37AC2BB65BFB00DC102C /* Japanse Course */ = {
 			isa = PBXGroup;
 			children = (
 				348A37B02BB65CF700DC102C /* HiraganaLessonView.swift */,
 				348A37AF2BB65CF600DC102C /* HiraganaStartView.swift */,
 			);
-			path = "Japaness Course";
+			path = "Japanse Course";
 			sourceTree = "<group>";
 		};
 		34D6E7A92BABC3760095A97B = {
@@ -304,7 +295,7 @@
 		34D6E7C72BABC5520095A97B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9F13CDA42BB9BF2D00F8C308 /* Not In USE */,
+				9F390FF72BADB6E2004FF7C4 /* HomeView.swift */,
 				340E127E2BB112620050F82A /* Courses */,
 				9F657EDC2BB104C900197451 /* Booking */,
 				9F7631112BAFF24B008172F3 /* Root */,
@@ -312,8 +303,6 @@
 				9F3910032BAE866E004FF7C4 /* Volunteer */,
 				34D6E7CB2BABC58F0095A97B /* Authentication */,
 				34D6E7CC2BABC5960095A97B /* Profile */,
-				9F390FF72BADB6E2004FF7C4 /* HomeView.swift */,
-				9F390FFF2BADBE92004FF7C4 /* ReviewView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -405,16 +394,6 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		9F13CDA42BB9BF2D00F8C308 /* Not In USE */ = {
-			isa = PBXGroup;
-			children = (
-				9F390FFB2BADBE5F004FF7C4 /* CourseView.swift */,
-				348A37AD2BB65C3700DC102C /* LessonView.swift */,
-				9F0515D32BAEC849004C53DC /* ChatHistoryView.swift */,
-			);
-			path = "Not In USE";
-			sourceTree = "<group>";
-		};
 		9F3910032BAE866E004FF7C4 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +402,18 @@
 				9F3910062BAE86AB004FF7C4 /* VolunteerDetailView.swift */,
 			);
 			path = Volunteer;
+			sourceTree = "<group>";
+		};
+		9F5281C72BBA5BDB006C5F1F /* CourseOnborading */ = {
+			isa = PBXGroup;
+			children = (
+				340E12802BB112BD0050F82A /* ChooseLanguageView.swift */,
+				34D0E28F2BB146C70081F083 /* ChooseLevelView.swift */,
+				34D0E28D2BB13D1B0081F083 /* ChooseGoalsView.swift */,
+				34D0E2912BB14A340081F083 /* PrepareView.swift */,
+				34D0E2932BB182060081F083 /* UnlockView.swift */,
+			);
+			path = CourseOnborading;
 			sourceTree = "<group>";
 		};
 		9F657EDC2BB104C900197451 /* Booking */ = {
@@ -586,7 +577,6 @@
 			files = (
 				34D6E8172BABDF0B0095A97B /* AuthViewModel.swift in Sources */,
 				9F390FF82BADB6E2004FF7C4 /* HomeView.swift in Sources */,
-				348A37AE2BB65C3700DC102C /* LessonView.swift in Sources */,
 				9F7631152BAFF24B008172F3 /* ContentView.swift in Sources */,
 				9F3910072BAE86AB004FF7C4 /* VolunteerDetailView.swift in Sources */,
 				34D6E7B62BABC3770095A97B /* ProjectApp.swift in Sources */,
@@ -600,7 +590,6 @@
 				34D6E7D22BABCDF10095A97B /* RegistrationView.swift in Sources */,
 				34D6E7D62BABD6A00095A97B /* SettingsRowView.swift in Sources */,
 				340E12812BB112BD0050F82A /* ChooseLanguageView.swift in Sources */,
-				9F390FFC2BADBE5F004FF7C4 /* CourseView.swift in Sources */,
 				3463DCAE2BAD247600692F51 /* EditProfileView.swift in Sources */,
 				9F3910022BADBEB0004FF7C4 /* VolunteerView.swift in Sources */,
 				9F51DAF02BB45CDD00B9A913 /* Date.swift in Sources */,
@@ -619,7 +608,6 @@
 				9F0515D22BAEBDF0004C53DC /* BotResponse.swift in Sources */,
 				9F76310C2BAFB9CA008172F3 /* BookingView.swift in Sources */,
 				9FFAEF302BB6C5BB0049AAFE /* WriteCharUserView.swift in Sources */,
-				9F0515D42BAEC849004C53DC /* ChatHistoryView.swift in Sources */,
 				34D6E7D42BABD3830095A97B /* ProfileView.swift in Sources */,
 				340D8B232BAC4E7B0072E50D /* ForgetPasswordView.swift in Sources */,
 				9F51DAF22BB45D4800B9A913 /* CustomCalendar.swift in Sources */,

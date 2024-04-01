@@ -77,7 +77,7 @@ struct WriteCharUserView: View {
             if let error = error {
                 print("Error saving completed item:", error)
             } else {
-                print("Completed item saved to the database.")
+                print("Completed item upated to the database.")
             }
         }
     }
@@ -191,59 +191,40 @@ struct WriteCharUserView: View {
                     .padding()
                 }
                 else {
-                    ZStack{
-                        
-                        Rectangle()
-                            .frame(width: 360, height: 190)
-                            .foregroundColor(Color(hex: 0xDEE3F4))
-                            .padding(.bottom, 15)
-                            .cornerRadius(15)
-                            .padding(.bottom, -15)
-                        
-                        VStack {
-                            Spacer()
-                            Text(result)
-                                .font(.headline.bold())
-                                .foregroundColor(Color(hex:0x686C80))
-                                .padding()
+                    VStack{
+                        ZStack{
                             
-                            HStack {
+                            Rectangle()
+                                .frame(width: 360, height: 190)
+                                .foregroundColor(Color(hex: 0xDEE3F4))
+                                .cornerRadius(15)
                                 
-                                ForEach(0..<5) { index in
-                                    Image(systemName: index < Int(matchPercentage) ? "star.fill" : "star")
-                                        .resizable().frame(width:25, height:25)
-                                        .foregroundColor(index < Int(matchPercentage) ? .yellow : .gray)
+                            
+                            VStack {
+                                Spacer()
+                                Text(result)
+                                    .font(.headline.bold())
+                                    .foregroundColor(Color(hex:0x686C80))
+                                    .padding()
+                                
+                                HStack {
                                     
-                                }
-                            }
-                            
-                            if (matchPercentage == 0) {
-                                Button(action: {
-                                    checkpath = false
-                                    resetDrawing()
-                                }) {
-                                    ZStack{
-                                        Rectangle()
-                                            .frame(width: 300, height: 68.69)
-                                            .foregroundColor(Color(hex: 0xA92028))
-                                            .cornerRadius(50)
+                                    ForEach(0..<5) { index in
+                                        Image(systemName: index < Int(matchPercentage) ? "star.fill" : "star")
+                                            .resizable().frame(width:25, height:25)
+                                            .foregroundColor(index < Int(matchPercentage) ? .yellow : .gray)
                                         
-                                        Text("Retry")
-                                            .foregroundColor(.white)
-                                            .font(.headline.bold())
-                                    }.padding()
+                                    }
                                 }
                                 
-                            }else{
-                                HStack{
-                                    Spacer()
+                                if (matchPercentage == 0) {
                                     Button(action: {
                                         checkpath = false
                                         resetDrawing()
                                     }) {
                                         ZStack{
                                             Rectangle()
-                                                .frame(width: 150, height: 40)
+                                                .frame(width: 300, height: 68.69)
                                                 .foregroundColor(Color(hex: 0xA92028))
                                                 .cornerRadius(50)
                                             
@@ -252,51 +233,69 @@ struct WriteCharUserView: View {
                                                 .font(.headline.bold())
                                         }.padding()
                                     }
-                                    Spacer()
-                                    Button(action: {
-                                        gonext = true
-                                    }) {
-                                        ZStack{
-                                            Rectangle()
-                                                .frame(width: 150, height: 40)
-                                                .foregroundColor(Color(hex: 0xA92028))
-                                                .cornerRadius(50)
-                                            
-                                            Text("Next")
-                                                .foregroundColor(.white)
-                                                .font(.headline.bold())
-                                        }.padding()
-                                    }
-                                    Spacer()
+                                    
+                                }else{
+                                    HStack(spacing: 20){
+
+                                        Button(action: {
+                                            checkpath = false
+                                            resetDrawing()
+                                        }) {
+                                            ZStack{
+                                                Rectangle()
+                                                    .frame(width: 150, height: 40)
+                                                    .foregroundColor(Color(hex: 0xA92028))
+                                                    .cornerRadius(50)
+                                                
+                                                Text("Retry")
+                                                    .foregroundColor(.white)
+                                                    .font(.headline.bold())
+                                            }
+                                        }
+                                        
+                                        Button(action: {
+                                            gonext = true
+                                        }) {
+                                            ZStack{
+                                                Rectangle()
+                                                    .frame(width: 150, height: 40)
+                                                    .foregroundColor(Color(hex: 0xA92028))
+                                                    .cornerRadius(50)
+                                                
+                                                Text("Next")
+                                                    .foregroundColor(.white)
+                                                    .font(.headline.bold())
+                                            }
+                                        }
+                                    }.padding()
+                                    
                                 }
                                 
+                                
+                                Spacer()
+                                
+                                NavigationLink(destination: HiraganaLessonView().navigationBarHidden(true), isActive: $gonext) {
+                                    EmptyView()
+                                }
                             }
-                            
-                            
-                            Spacer()
-                            
-                            NavigationLink(destination: HiraganaLessonView().navigationBarHidden(true), isActive: $gonext) {
-                                EmptyView()
-                            }
-                        }
-                        .onAppear {
-                            switch Int(matchPercentage) {
-                            case 5:
-                                result = "Perfect"
-                            case 4:
-                                result = "Good"
-                            case 3:
-                                result = "Average"
-                            case 2:
-                                result = "Below Average"
-                            case 1:
-                                result = "Poor"
-                            default:
-                                result = "Try Again"
+                            .onAppear {
+                                switch Int(matchPercentage) {
+                                case 5:
+                                    result = "Perfect"
+                                case 4:
+                                    result = "Good"
+                                case 3:
+                                    result = "Average"
+                                case 2:
+                                    result = "Below Average"
+                                case 1:
+                                    result = "Poor"
+                                default:
+                                    result = "Try Again"
+                                }
                             }
                         }
                     }
-                    
                 }
             }
         .onAppear {

@@ -57,7 +57,8 @@ struct UnlockView: View {
                 //Try Button
                 Button(action: {
                     // Button action
-                    print("DEBUG: Try Button Clicked")
+                    
+                    // print("DEBUG: Try Button Clicked")
                     
                     isHiraganaStartViewActive = true
                 }) {

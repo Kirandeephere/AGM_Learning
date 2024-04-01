@@ -135,10 +135,10 @@ struct EditProfileView: View {
                     Task {
                         do {
                             try await viewModel.updateUserInfo(fullname: fullname, email: email, phonenumber: phonenumber)
-                            print("DEBUG: User Data Successfully Updated")
+                            print("User Data Successfully Updated")
                             navigateToProfile = true
                         } catch {
-                            print("DEBUG: Update User Data Error")
+                            print("Update User Data Error")
                             errorMessage = error.localizedDescription
                         }
                     }

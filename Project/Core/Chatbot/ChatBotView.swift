@@ -5,15 +5,11 @@
 //  Created by Kirandeep Kaur on 22/3/2024.
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
 
 struct ChatBotView: View {
     @State private var messageText = ""
     @State var messages: [ChatMessage] = []
     @State var showScrollView = false
-    let db = Firestore.firestore()
-    var chatID: String = UUID().uuidString // Generate a unique chat ID for each conversation
     @EnvironmentObject var viewModel: AuthViewModel
     var user: User? {
         viewModel.currentUser
@@ -56,7 +52,7 @@ struct ChatBotView: View {
                 }
                 
                 if showScrollView {
-                    ScrollView {
+                    ScrollView(showsIndicators: false){
                         ForEach(messages, id: \.self) { chatMessage in
                             // If the message sender is the user
                             if chatMessage.sender == "user" {
@@ -156,46 +152,12 @@ struct ChatBotView: View {
             self.messageText = ""
             showScrollView = true
             
-            let chatData: [String: Any] = [
-                "timestamp": Date(),
-               "chatID": chatID, // Save the chat ID in the document
-                "conversation": messages.map { message in
-                    return [
-                        "sender": message.sender,
-                        "message": message.message
-                    ]
-                }
-            ]
-            
-            db.collection("chats").document(chatID).setData(chatData) { error in
-                if let error = error {
-                    print("Error sending message: \(error.localizedDescription)")
-                } else {
-                    print("Message sent successfully")
-                }
-            }
-            
+    
+                        
             let botResponse = getBotResponse(message: message)
             let botMessage = ChatMessage(sender: "bot", message: botResponse)
             messages.append(botMessage)
             
-            let botChatData: [String: Any] = [
-                "timestamp": Date(),
-                "chatID": chatID, // Save the chat ID in the document
-                "conversation": [
-                    [
-                        "sender": botMessage.sender,
-                        "message": botMessage.message
-                    ]
-                ]
-            ]
-            db.collection("chats").document(user.id).collection(chatID).addDocument(data: botChatData){ error in
-                if let error = error {
-                    print("Error sending bot message: \(error.localizedDescription)")
-                } else {
-                    print("Bot message sent successfully")
-                }
-            }
         }
     }
 }
@@ -204,6 +166,7 @@ struct ChatMessage: Hashable {
     var sender: String
     var message: String
 }
+
 #Preview {
     ChatBotView()
 }

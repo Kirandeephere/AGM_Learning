@@ -226,15 +226,15 @@ struct HomeView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                print("fetchBookings start")
-                bookingStore.fetchBookings(authViewModel: viewModel) // Fetch the bookings after 3 seconds
-                print("fetchBookingsdone")
+                //print("DEBUG: fetchBookings start")
+                bookingStore.fetchBookings(authViewModel: viewModel)
+                print("Bookings have been fetched")
                 
-                print("fetchUser start")
+                //print("DEBUG: fetchUser start")
                 Task {
                     do {
                         try await viewModel.fetchUser()
-                        print("fetchUser done")
+                        print("User data have been fetched")
                     } catch {
                         print("Error fetching user: \(error)")
                     }

@@ -87,7 +87,7 @@ struct ShowStrokeOrderView: View {
                         
                         Button(action: {
                             // Button action
-                            print("DEBUG: Start Learning Button Clicked")
+                            // print("DEBUG: Start Learning Button Clicked")
                             
                             StartWriting = true
                         }) {

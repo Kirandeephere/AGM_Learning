@@ -161,7 +161,7 @@ struct HiraganaStartView: View {
                 
                 Button(action: {
                     // Button action
-                    print("DEBUG: Start Learning Button Clicked")
+                    // print("DEBUG: Start Learning Button Clicked")
                     
                     StartFirstLetters = true
                 }) {
