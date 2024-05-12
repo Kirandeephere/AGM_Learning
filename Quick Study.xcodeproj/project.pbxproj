@@ -246,7 +246,7 @@
 		34D6E7A92BABC3760095A97B = {
 			isa = PBXGroup;
 			children = (
-				34D6E7B42BABC3770095A97B /* Quick Study */,
+				34D6E7B42BABC3770095A97B /* Project */,
 				34D6E7B32BABC3770095A97B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34D6E7B42BABC3770095A97B /* Quick Study */ = {
+		34D6E7B42BABC3770095A97B /* Project */ = {
 			isa = PBXGroup;
 			children = (
 				9F13CDA82BB9C9D200F8C308 /* Info.plist */,
@@ -273,7 +273,7 @@
 				34D6E7BB2BABC3790095A97B /* Project.entitlements */,
 				34D6E7BC2BABC3790095A97B /* Preview Content */,
 			);
-			path = "Quick Study";
+			path = Project;
 			sourceTree = "<group>";
 		};
 		34D6E7BC2BABC3790095A97B /* Preview Content */ = {
